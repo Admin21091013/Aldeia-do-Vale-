@@ -44,7 +44,7 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
           key={link.href}
           href={link.href}
           onClick={handleLinkClick}
-          className="text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
+          className="text-sm font-medium text-accent-foreground/80 transition-colors hover:text-accent-foreground"
         >
           {link.label}
         </Link>
@@ -56,7 +56,7 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
     <header
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
-        isScrolled ? "bg-background/80 backdrop-blur-sm shadow-md" : "bg-transparent",
+        isScrolled ? "bg-accent/95 text-accent-foreground shadow-md backdrop-blur-sm" : "bg-transparent text-white",
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
@@ -67,13 +67,23 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
         </div>
         
         <nav className="hidden items-center gap-6 lg:flex">
-          <NavMenu />
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={cn("text-sm font-medium transition-colors",
+                isScrolled ? "text-accent-foreground/80 hover:text-accent-foreground" : "text-white/80 hover:text-white"
+              )}
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
             <Button
                 variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                className={cn(isScrolled ? "border-primary text-primary hover:bg-primary hover:text-primary-foreground" : "border-white text-white hover:bg-white hover:text-black")}
                 asChild
             >
                 <Link href={WHATSAPP_LINK} target="_blank">
@@ -91,14 +101,14 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
 
         <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
           <SheetTrigger asChild className="lg:hidden">
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" className={cn(isScrolled ? "text-accent-foreground" : "text-white", "hover:bg-white/10")}>
               <Menu className="h-6 w-6" />
               <span className="sr-only">Open menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-full bg-background">
+          <SheetContent side="right" className="w-full bg-accent text-accent-foreground">
               <div className="flex h-full flex-col">
-                <div className="flex items-center justify-between border-b pb-4">
+                <div className="flex items-center justify-between border-b border-accent-foreground/20 pb-4">
                     <Link href="#inicio" className="flex items-center gap-2" onClick={handleLinkClick}>
                         <Image src="https://i.imgur.com/YDS2Ge3.png" alt="Aldeia do Vale Logo" width={150} height={40} className="object-contain" />
                     </Link>
@@ -108,7 +118,16 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
                     </Button>
                 </div>
                 <nav className="flex flex-1 flex-col items-center justify-center gap-6">
-                    <NavMenu />
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={handleLinkClick}
+                      className="text-lg font-medium text-accent-foreground/80 transition-colors hover:text-accent-foreground"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
                 </nav>
                 <div className="mt-auto flex flex-col gap-4 py-4">
                     <Button
