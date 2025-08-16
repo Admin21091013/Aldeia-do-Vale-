@@ -30,6 +30,7 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Call on mount to set initial state
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   
@@ -55,8 +56,7 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
-        isScrolled ? "bg-accent/95 text-accent-foreground shadow-md backdrop-blur-sm" : "bg-transparent text-white",
+        "sticky top-0 z-50 w-full bg-accent/95 text-accent-foreground shadow-md backdrop-blur-sm transition-all duration-300"
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
@@ -71,9 +71,7 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
             <Link
               key={link.href}
               href={link.href}
-              className={cn("text-sm font-medium transition-colors",
-                isScrolled ? "text-accent-foreground/80 hover:text-accent-foreground" : "text-white/80 hover:text-white"
-              )}
+              className={cn("text-sm font-medium transition-colors text-accent-foreground/80 hover:text-accent-foreground")}
             >
               {link.label}
             </Link>
@@ -83,7 +81,7 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
         <div className="hidden items-center gap-2 lg:flex">
             <Button
                 variant="outline"
-                className={cn(isScrolled ? "border-primary text-primary hover:bg-primary hover:text-primary-foreground" : "border-white text-white hover:bg-white hover:text-black")}
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                 asChild
             >
                 <Link href={WHATSAPP_LINK} target="_blank">
@@ -101,7 +99,7 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
 
         <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
           <SheetTrigger asChild className="lg:hidden">
-            <Button variant="ghost" size="icon" className={cn(isScrolled ? "text-accent-foreground" : "text-white", "hover:bg-white/10")}>
+            <Button variant="ghost" size="icon" className="text-accent-foreground hover:bg-white/10">
               <Menu className="h-6 w-6" />
               <span className="sr-only">Open menu</span>
             </Button>
