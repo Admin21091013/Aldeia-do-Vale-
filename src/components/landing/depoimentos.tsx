@@ -33,7 +33,7 @@ export default function Depoimentos() {
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="flex flex-col border-0 bg-card shadow-lg">
               <CardContent className="flex flex-1 flex-col p-6">
-                <div className="flex text-[#C7A45B]">
+                <div className="flex text-accent">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-5 w-5 fill-current" />
                   ))}

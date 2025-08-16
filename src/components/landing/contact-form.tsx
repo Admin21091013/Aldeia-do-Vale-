@@ -201,7 +201,7 @@ export function ContactForm({ onFormSubmit }: { onFormSubmit?: () => void }) {
         />
         <Button 
             type="submit" 
-            className="w-full bg-[#C7A45B] text-black hover:bg-[#C7A45B]/90" 
+            className="w-full bg-accent text-accent-foreground hover:bg-accent/90" 
             size="lg"
             disabled={isSubmitting}>
           {isSubmitting ? "Enviando..." : "Enviar Solicitação"}

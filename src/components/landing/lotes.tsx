@@ -30,7 +30,7 @@ export default function Lotes({ onReserveClick }: { onReserveClick: () => void; 
             <Button
               onClick={onReserveClick}
               size="lg"
-              className="mt-10 bg-[#C7A45B] text-black shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-[#C7A45B]/90"
+              className="mt-10 bg-accent text-accent-foreground shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-accent/90"
             >
               Quero receber a Tabela e o Masterplan
             </Button>

@@ -31,7 +31,7 @@ export default function Hero({ onReserveClick }: { onReserveClick: () => void; }
             <Button
               onClick={onReserveClick}
               size="lg"
-              className="w-full bg-[#C7A45B] text-black shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-[#C7A45B]/90 sm:w-auto"
+              className="w-full bg-accent text-accent-foreground shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-accent/90 sm:w-auto"
             >
               Reservar Interesse
             </Button>

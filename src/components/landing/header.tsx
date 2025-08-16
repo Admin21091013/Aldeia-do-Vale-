@@ -83,7 +83,7 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
             </Button>
             <Button
               onClick={onReserveClick}
-              className="bg-[#C7A45B] text-black hover:bg-[#C7A45B]/90"
+              className="bg-accent text-accent-foreground hover:bg-accent/90"
             >
               Reservar Interesse
             </Button>
@@ -113,7 +113,7 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
                 <div className="mt-auto flex flex-col gap-4 py-4">
                     <Button
                     onClick={() => { onReserveClick(); handleLinkClick(); }}
-                    className="w-full bg-[#C7A45B] text-black hover:bg-[#C7A45B]/90"
+                    className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
                     size="lg"
                     >
                     Reservar Interesse

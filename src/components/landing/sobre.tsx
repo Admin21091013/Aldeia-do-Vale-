@@ -23,7 +23,7 @@ export default function Sobre() {
             <p className="mt-6 text-base leading-relaxed text-muted-foreground">
               Referência em imóveis de alto padrão desde 2016, com sede no Lago Sul (Brasília–DF). Portfólio de mansões e imóveis premium, atendimento personalizado, rede de clientes qualificados e parcerias sólidas. Foco em exclusividade e alto valor agregado.
             </p>
-            <div className="mt-8 border-l-4 border-[#C7A45B] pl-6">
+            <div className="mt-8 border-l-4 border-accent pl-6">
               <p className="font-headline text-xl italic text-foreground">
                 “Alguns lugares não são apenas construídos, são concedidos pela própria natureza. Cadastre-se agora e garanta seu lugar no exclusivo Aldeia do Vale – Pirenópolis.”
               </p>
