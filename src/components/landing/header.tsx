@@ -23,6 +23,17 @@ const WHATSAPP_LINK = "https://wa.me/5562999999999?text=Tenho%20interesse%20no%2
 
 export default function Header({ onReserveClick }: { onReserveClick: () => void; }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleLinkClick = () => {
     setIsMobileMenuOpen(false);
@@ -31,13 +42,14 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full bg-accent text-accent-foreground shadow-md backdrop-blur-sm transition-all duration-300"
+        "sticky top-0 z-50 w-full transition-all duration-300",
+        isScrolled ? "bg-background/95 text-foreground shadow-md backdrop-blur-sm" : "bg-transparent text-white"
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <div className="flex items-center">
             <Link href="#inicio" className="flex items-center gap-2" onClick={handleLinkClick}>
-                <Image src="https://i.imgur.com/3RtNwCz.png" alt="Aldeia do Vale Logo" width={150} height={40} className="object-contain" />
+                <Image src="https://i.imgur.com/3RtNwCz.png" alt="Aldeia do Vale Logo" width={150} height={40} className={cn("object-contain", !isScrolled && "brightness-0 invert")} />
             </Link>
         </div>
         
@@ -46,7 +58,7 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
             <Link
               key={link.href}
               href={link.href}
-              className={cn("text-sm font-medium transition-colors text-accent-foreground/80 hover:text-accent-foreground")}
+              className={cn("text-sm font-medium transition-colors hover:text-primary", isScrolled ? "text-foreground/80" : "text-white/80")}
             >
               {link.label}
             </Link>
@@ -55,8 +67,11 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
 
         <div className="hidden items-center gap-2 lg:flex">
             <Button
-                variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                variant={isScrolled ? "outline" : "outline"}
+                className={cn(
+                  "border-primary text-primary hover:bg-primary hover:text-primary-foreground",
+                  !isScrolled && "border-white text-white hover:bg-white hover:text-primary"
+                  )}
                 asChild
             >
                 <Link href={WHATSAPP_LINK} target="_blank">
@@ -74,14 +89,14 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
 
         <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
           <SheetTrigger asChild className="lg:hidden">
-            <Button variant="ghost" size="icon" className="text-accent-foreground hover:bg-white/10">
+            <Button variant="ghost" size="icon" className={cn(isScrolled ? "text-foreground" : "text-white", "hover:bg-black/10")}>
               <Menu className="h-6 w-6" />
               <span className="sr-only">Open menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-full bg-accent text-accent-foreground">
+          <SheetContent side="right" className="w-full bg-background text-foreground">
               <div className="flex h-full flex-col">
-                <div className="flex items-center justify-between border-b border-accent-foreground/20 pb-4">
+                <div className="flex items-center justify-between border-b border-border pb-4">
                     <Link href="#inicio" className="flex items-center gap-2" onClick={handleLinkClick}>
                         <Image src="https://i.imgur.com/3RtNwCz.png" alt="Aldeia do Vale Logo" width={150} height={40} className="object-contain" />
                     </Link>
@@ -96,7 +111,7 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
                       key={link.href}
                       href={link.href}
                       onClick={handleLinkClick}
-                      className="text-lg font-medium text-accent-foreground/80 transition-colors hover:text-accent-foreground"
+                      className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground"
                     >
                       {link.label}
                     </Link>
