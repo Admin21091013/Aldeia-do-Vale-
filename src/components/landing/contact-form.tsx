@@ -169,7 +169,7 @@ export function ContactForm({ onFormSubmit }: { onFormSubmit?: () => void }) {
                 <FormLabel>Melhor horário para contato</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
-                    <SelectTrigger><SelectValue /></SelectValue></FormControl>
+                    <SelectTrigger><SelectValue /></SelectTrigger>
                   </FormControl>
                   <SelectContent>
                     <SelectItem value="Manhã">Manhã</SelectItem>
