@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function InfoSection() {
   return (
-    <section className="bg-background py-16 sm:py-24">
+    <section className="bg-accent py-16 sm:py-24">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div className="overflow-hidden rounded-2xl shadow-lg">
