@@ -21,11 +21,11 @@ const testimonials = [
 
 export default function Depoimentos() {
   return (
-    <section id="depoimentos" className="bg-secondary">
+    <section id="depoimentos" className="bg-accent text-accent-foreground">
       <div className="container mx-auto px-4">
         <div className="text-center">
           <h2 className="font-headline text-3xl md:text-4xl">O que nossos clientes dizem</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-2xl text-accent-foreground/80">
             A satisfação de quem escolhe viver ou investir conosco é a nossa maior conquista.
           </p>
         </div>
@@ -33,7 +33,7 @@ export default function Depoimentos() {
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="flex flex-col border-0 bg-card shadow-lg">
               <CardContent className="flex flex-1 flex-col p-6">
-                <div className="flex text-accent">
+                <div className="flex text-primary">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-5 w-5 fill-current" />
                   ))}

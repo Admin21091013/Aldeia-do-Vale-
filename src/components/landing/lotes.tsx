@@ -11,26 +11,26 @@ const features = [
 
 export default function Lotes({ onReserveClick }: { onReserveClick: () => void; }) {
   return (
-    <section id="lotes" className="bg-secondary">
+    <section id="lotes" className="bg-accent text-accent-foreground">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div className="order-2 lg:order-1">
             <h2 className="font-headline text-3xl md:text-4xl">Terrenos para viver o essencial</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-4 text-lg text-accent-foreground/80">
               Projetado para quem valoriza espaço, privacidade e uma conexão genuína com a natureza, sem abrir mão da sofisticação.
             </p>
             <ul className="mt-8 space-y-4">
               {features.map((feature, index) => (
                 <li key={index} className="flex items-center gap-3">
-                  <CheckCircle className="h-6 w-6 flex-shrink-0 text-accent" />
-                  <span className="text-lg text-foreground">{feature}</span>
+                  <CheckCircle className="h-6 w-6 flex-shrink-0 text-primary" />
+                  <span className="text-lg text-accent-foreground">{feature}</span>
                 </li>
               ))}
             </ul>
             <Button
               onClick={onReserveClick}
               size="lg"
-              className="mt-10 bg-accent text-accent-foreground shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-accent/90"
+              className="mt-10 bg-primary text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-primary/90"
             >
               Quero receber a Tabela e o Masterplan
             </Button>

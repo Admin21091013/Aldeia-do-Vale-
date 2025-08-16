@@ -169,7 +169,7 @@ export function ContactForm({ onFormSubmit }: { onFormSubmit?: () => void }) {
                 <FormLabel>Melhor horário para contato</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
-                    <SelectTrigger><SelectValue /></SelectTrigger>
+                    <SelectTrigger><SelectValue /></SelectValue></FormControl>
                   </FormControl>
                   <SelectContent>
                     <SelectItem value="Manhã">Manhã</SelectItem>
@@ -201,7 +201,7 @@ export function ContactForm({ onFormSubmit }: { onFormSubmit?: () => void }) {
         />
         <Button 
             type="submit" 
-            className="w-full bg-accent text-accent-foreground hover:bg-accent/90" 
+            className="w-full bg-primary text-primary-foreground hover:bg-primary/90" 
             size="lg"
             disabled={isSubmitting}>
           {isSubmitting ? "Enviando..." : "Enviar Solicitação"}
