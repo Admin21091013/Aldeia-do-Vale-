@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Header from "@/components/landing/header";
 import Hero from "@/components/landing/hero";
-import Story from "@/components/landing/story";
 import Diferenciais from "@/components/landing/diferenciais";
 import Infraestrutura from "@/components/landing/infraestrutura";
 import Localizacao from "@/components/landing/localizacao";
@@ -27,7 +26,6 @@ export default function Home() {
       <Header onReserveClick={openModal} />
       <main className="flex-1">
         <Hero onReserveClick={openModal} />
-        <Story />
         <Diferenciais />
         <Infraestrutura />
         <Localizacao />
