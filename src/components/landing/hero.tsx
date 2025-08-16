@@ -11,7 +11,7 @@ export default function Hero({ onReserveClick }: { onReserveClick: () => void; }
   return (
     <section id="inicio" className="relative h-screen min-h-[700px] w-full">
       <Image
-        src="https://i.imgur.com/gGoBzQi.jpeg"
+        src="https://i.imgur.com/ZB3OgJJ.jpeg"
         alt="Paisagem natural exuberante do Aldeia do Vale em Pirenópolis"
         data-ai-hint="nature lake sunrise"
         fill
