@@ -22,47 +22,22 @@ const navLinks = [
 const WHATSAPP_LINK = "https://wa.me/5562999999999?text=Tenho%20interesse%20no%20Aldeia%20do%20Vale%20%E2%80%93%20Piren%C3%B3polis.";
 
 export default function Header({ onReserveClick }: { onReserveClick: () => void; }) {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Call on mount to set initial state
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-  
   const handleLinkClick = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const NavMenu = () => (
-    <>
-      {navLinks.map((link) => (
-        <Link
-          key={link.href}
-          href={link.href}
-          onClick={handleLinkClick}
-          className="text-sm font-medium text-accent-foreground/80 transition-colors hover:text-accent-foreground"
-        >
-          {link.label}
-        </Link>
-      ))}
-    </>
-  );
-
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full bg-accent/95 text-accent-foreground shadow-md backdrop-blur-sm transition-all duration-300"
+        "sticky top-0 z-50 w-full bg-accent text-accent-foreground shadow-md backdrop-blur-sm transition-all duration-300"
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <div className="flex items-center">
             <Link href="#inicio" className="flex items-center gap-2" onClick={handleLinkClick}>
-                <Image src="https://i.imgur.com/YDS2Ge3.png" alt="Aldeia do Vale Logo" width={150} height={40} className="object-contain" />
+                <Image src="https://i.imgur.com/3RtNwCz.png" alt="Aldeia do Vale Logo" width={150} height={40} className="object-contain" />
             </Link>
         </div>
         
@@ -108,7 +83,7 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
               <div className="flex h-full flex-col">
                 <div className="flex items-center justify-between border-b border-accent-foreground/20 pb-4">
                     <Link href="#inicio" className="flex items-center gap-2" onClick={handleLinkClick}>
-                        <Image src="https://i.imgur.com/YDS2Ge3.png" alt="Aldeia do Vale Logo" width={150} height={40} className="object-contain" />
+                        <Image src="https://i.imgur.com/3RtNwCz.png" alt="Aldeia do Vale Logo" width={150} height={40} className="object-contain" />
                     </Link>
                     <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
                         <X className="h-6 w-6" />
