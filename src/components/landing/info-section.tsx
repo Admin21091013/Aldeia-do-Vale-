@@ -17,7 +17,7 @@ export default function InfoSection() {
         </div>
 
         <div className="mt-16 grid grid-cols-1 items-start justify-items-center gap-8 md:grid-cols-3">
-          <div className="w-full max-w-sm overflow-hidden rounded-2xl shadow-lg">
+          <div className="w-full max-w-xs overflow-hidden rounded-2xl shadow-lg">
             <Image
               src="https://i.imgur.com/oMt2kcj.png"
               alt="Luxo e natureza em perfeita harmonia"
@@ -26,7 +26,7 @@ export default function InfoSection() {
               className="h-auto w-full rounded-2xl"
             />
           </div>
-          <div className="w-full max-w-sm overflow-hidden rounded-2xl shadow-lg">
+          <div className="w-full max-w-xs overflow-hidden rounded-2xl shadow-lg">
             <Image
               src="https://i.imgur.com/SsiDE98.png"
               alt="Um novo capítulo na história de Pirenópolis"
@@ -35,7 +35,7 @@ export default function InfoSection() {
               className="h-auto w-full rounded-2xl"
             />
           </div>
-          <div className="w-full max-w-sm overflow-hidden rounded-2xl shadow-lg">
+          <div className="w-full max-w-xs overflow-hidden rounded-2xl shadow-lg">
             <Image
               src="https://i.imgur.com/FC328r1.png"
               alt="Vista para o Morro do Frota"
