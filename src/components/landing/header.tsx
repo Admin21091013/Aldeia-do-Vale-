@@ -30,6 +30,7 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
