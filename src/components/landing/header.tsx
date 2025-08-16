@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { Menu, MessageSquare, X } from "lucide-react";
+import Image from "next/image";
 
 const navLinks = [
   { href: "#inicio", label: "Início" },
@@ -58,11 +59,10 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
         isScrolled ? "bg-background/80 backdrop-blur-sm shadow-md" : "bg-transparent",
       )}
     >
-      <div className="container mx-auto flex items-center justify-between px-4">
+      <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <div className="flex items-center">
             <Link href="#inicio" className="flex items-center gap-2" onClick={handleLinkClick}>
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-primary"><path d="M12 2L2 7V17L12 22L22 17V7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M2 7L12 12L22 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M12 12V22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                <span className="font-headline text-lg font-semibold text-primary">Aldeia do Vale</span>
+                <Image src="https://i.imgur.com/YDS2Ge3.png" alt="Aldeia do Vale Logo" width={150} height={40} className="object-contain" />
             </Link>
         </div>
         
@@ -100,8 +100,7 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
               <div className="flex h-full flex-col">
                 <div className="flex items-center justify-between border-b pb-4">
                     <Link href="#inicio" className="flex items-center gap-2" onClick={handleLinkClick}>
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-primary"><path d="M12 2L2 7V17L12 22L22 17V7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M2 7L12 12L22 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M12 12V22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                        <span className="font-headline text-base font-semibold text-primary">Aldeia do Vale</span>
+                        <Image src="https://i.imgur.com/YDS2Ge3.png" alt="Aldeia do Vale Logo" width={150} height={40} className="object-contain" />
                     </Link>
                     <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
                         <X className="h-6 w-6" />
