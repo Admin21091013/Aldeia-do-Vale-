@@ -5,22 +5,22 @@ export default function InfoSection() {
     <section className="bg-accent py-16 sm:py-24">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          <div className="flex items-center justify-center overflow-hidden rounded-2xl bg-card shadow-lg">
+          <div className="flex items-center justify-center overflow-hidden rounded-2xl shadow-lg">
             <Image
               src="https://i.imgur.com/oMt2kcj.png"
               alt="Luxo e natureza em perfeita harmonia"
               width={800}
               height={600}
-              className="h-auto w-full object-contain"
+              className="h-full w-full object-cover"
             />
           </div>
-          <div className="flex items-center justify-center overflow-hidden rounded-2xl bg-card shadow-lg">
+          <div className="flex items-center justify-center overflow-hidden rounded-2xl shadow-lg">
             <Image
               src="https://i.imgur.com/SsiDE98.png"
               alt="Um novo capítulo na história de Pirenópolis"
               width={800}
               height={600}
-              className="h-auto w-full object-contain"
+              className="h-full w-full object-cover"
             />
           </div>
         </div>
