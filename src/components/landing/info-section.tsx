@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { WistiaPlayer } from "./wistia-player";
 
 export default function InfoSection() {
   return (
@@ -12,17 +11,13 @@ export default function InfoSection() {
           </p>
         </div>
         
-        <div className="mx-auto mt-12 max-w-5xl">
-          <WistiaPlayer />
-        </div>
-
         <div className="mt-16 grid grid-cols-1 items-start justify-items-center gap-8 md:grid-cols-3">
           <div className="w-full max-w-xs overflow-hidden rounded-2xl shadow-lg">
             <Image
               src="https://i.imgur.com/oMt2kcj.png"
               alt="Luxo e natureza em perfeita harmonia"
-              width={550}
-              height={384}
+              width={275}
+              height={192}
               className="h-auto w-full rounded-2xl"
             />
           </div>
@@ -30,8 +25,8 @@ export default function InfoSection() {
             <Image
               src="https://i.imgur.com/SsiDE98.png"
               alt="Um novo capítulo na história de Pirenópolis"
-              width={550}
-              height={384}
+              width={275}
+              height={192}
               className="h-auto w-full rounded-2xl"
             />
           </div>
@@ -39,8 +34,8 @@ export default function InfoSection() {
             <Image
               src="https://i.imgur.com/FC328r1.png"
               alt="Vista para o Morro do Frota"
-              width={550}
-              height={384}
+              width={275}
+              height={192}
               className="h-auto w-full rounded-2xl"
             />
           </div>

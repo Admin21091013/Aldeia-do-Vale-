@@ -1,7 +1,12 @@
+import { WistiaPlayer } from "./wistia-player";
+
 export default function CopySection() {
   return (
     <section className="bg-background py-16 sm:py-24">
       <div className="container mx-auto max-w-4xl px-4">
+        <div className="mx-auto mb-12 max-w-5xl">
+            <WistiaPlayer />
+        </div>
         <div className="space-y-6 text-left text-lg text-foreground/80">
           <p>
             Viver no Aldeia do Vale Pirenópolis é experimentar um novo conceito de bem-estar e exclusividade.
