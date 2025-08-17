@@ -27,15 +27,13 @@ export default function CopySection() {
         </div>
       </div>
         <div className="my-12 w-full">
-            <div className="container mx-auto px-4 lg:px-0">
-                 <Image 
-                    src="https://i.imgur.com/CooAy3V.jpeg"
-                    alt="Detalhe da arquitetura do Aldeia do Vale"
-                    width={1920}
-                    height={600}
-                    className="h-auto w-full rounded-none object-cover shadow-lg lg:rounded-2xl"
-                />
-            </div>
+            <Image 
+                src="https://i.imgur.com/CooAy3V.jpeg"
+                alt="Detalhe da arquitetura do Aldeia do Vale"
+                width={1920}
+                height={600}
+                className="h-auto w-full rounded-none object-cover shadow-lg md:rounded-lg"
+            />
         </div>
       <div className="container mx-auto max-w-4xl px-4">
         <div className="mt-8 border-l-4 border-accent pl-6">
