@@ -2,8 +2,17 @@ import Image from "next/image";
 
 export default function InfoSection() {
   return (
-    <section id="diferenciais" className="bg-accent py-16 sm:py-24">
-      <div className="container mx-auto px-4">
+    <section id="diferenciais" className="bg-accent pt-0 sm:pt-0">
+       <div className="w-full">
+            <Image 
+                src="https://i.imgur.com/CooAy3V.jpeg"
+                alt="Detalhe da arquitetura do Aldeia do Vale"
+                width={1920}
+                height={600}
+                className="h-auto w-full rounded-none object-cover shadow-lg md:rounded-none"
+            />
+        </div>
+      <div className="container mx-auto px-4 py-16 sm:py-24">
         <div className="mx-auto max-w-3xl text-center text-accent-foreground">
           <h2 className="font-headline text-3xl md:text-4xl">Está pensando em investir?</h2>
           <p className="mt-4 text-lg text-accent-foreground/80">
