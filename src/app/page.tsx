@@ -7,7 +7,6 @@ import CopySection from "@/components/landing/copy-section";
 import InfoSection from "@/components/landing/info-section";
 import Localizacao from "@/components/landing/localizacao";
 import Galeria from "@/components/landing/galeria";
-import Lotes from "@/components/landing/lotes";
 import Sobre from "@/components/landing/sobre";
 import Depoimentos from "@/components/landing/depoimentos";
 import Faq from "@/components/landing/faq";
@@ -30,7 +29,6 @@ export default function Home() {
         <InfoSection />
         <Localizacao />
         <Galeria />
-        <Lotes onReserveClick={openModal} />
         <Sobre />
         <Depoimentos />
         <Faq />

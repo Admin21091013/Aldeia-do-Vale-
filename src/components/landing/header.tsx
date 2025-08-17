@@ -13,7 +13,6 @@ const navLinks = [
   { href: "#diferenciais", label: "Diferenciais" },
   { href: "#localizacao", label: "Localização" },
   { href: "#galeria", label: "Galeria" },
-  { href: "#lotes", label: "Lotes" },
   { href: "#sobre", label: "Sobre" },
   { href: "#faq", label: "FAQ" },
 ];
