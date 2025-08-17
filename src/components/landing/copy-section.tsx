@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { WistiaPlayer } from "./wistia-player";
 
 export default function CopySection() {
@@ -23,6 +24,15 @@ export default function CopySection() {
             Qual é o tamanho da sua liberdade?
             Aqui, liberdade significa poder desfrutar do melhor que a vida pode oferecer: tranquilidade, lazer, segurança e um estilo de vida elevado a outro patamar.
           </p>
+        </div>
+        <div className="my-12 flex justify-center">
+            <Image 
+                src="https://i.imgur.com/CooAy3V.jpeg"
+                alt="Detalhe da arquitetura do Aldeia do Vale"
+                width={800}
+                height={400}
+                className="rounded-2xl shadow-lg"
+            />
         </div>
         <div className="mt-8 border-l-4 border-accent pl-6">
             <p className="font-headline text-2xl italic text-foreground">
