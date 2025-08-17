@@ -25,15 +25,19 @@ export default function CopySection() {
             Aqui, liberdade significa poder desfrutar do melhor que a vida pode oferecer: tranquilidade, lazer, segurança e um estilo de vida elevado a outro patamar.
           </p>
         </div>
-        <div className="my-12 flex justify-center">
-            <Image 
-                src="https://i.imgur.com/CooAy3V.jpeg"
-                alt="Detalhe da arquitetura do Aldeia do Vale"
-                width={800}
-                height={400}
-                className="rounded-2xl shadow-lg"
-            />
+      </div>
+        <div className="my-12 w-full">
+            <div className="container mx-auto px-4 lg:px-0">
+                 <Image 
+                    src="https://i.imgur.com/CooAy3V.jpeg"
+                    alt="Detalhe da arquitetura do Aldeia do Vale"
+                    width={1920}
+                    height={600}
+                    className="h-auto w-full rounded-none object-cover shadow-lg lg:rounded-2xl"
+                />
+            </div>
         </div>
+      <div className="container mx-auto max-w-4xl px-4">
         <div className="mt-8 border-l-4 border-accent pl-6">
             <p className="font-headline text-2xl italic text-foreground">
                 Aldeia do Vale Pirenópolis — um lugar único, para quem deseja viver o extraordinário todos os dias.
