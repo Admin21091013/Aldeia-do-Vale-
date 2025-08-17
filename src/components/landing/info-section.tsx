@@ -21,21 +21,21 @@ export default function InfoSection() {
         </div>
         
         <div className="mt-16 grid grid-cols-1 items-start justify-items-center gap-8 md:grid-cols-2">
-          <div className="w-full max-w-md overflow-hidden rounded-2xl shadow-lg">
+          <div className="w-full overflow-hidden rounded-2xl shadow-lg">
             <Image
               src="https://i.imgur.com/0w1peBx.jpeg"
               alt="Planta do terreno 1"
-              width={600}
-              height={400}
+              width={800}
+              height={600}
               className="h-auto w-full rounded-2xl"
             />
           </div>
-          <div className="w-full max-w-md overflow-hidden rounded-2xl shadow-lg">
+          <div className="w-full overflow-hidden rounded-2xl shadow-lg">
             <Image
               src="https://i.imgur.com/6mvYsLW.jpeg"
               alt="Planta do terreno 2"
-              width={600}
-              height={400}
+              width={800}
+              height={600}
               className="h-auto w-full rounded-2xl"
             />
           </div>
