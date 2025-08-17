@@ -15,14 +15,16 @@ export default function Localizacao() {
             </p>
           </div>
           <div className="h-80 w-full overflow-hidden rounded-2xl shadow-lg lg:h-96">
-            <Image
-              src="https://placehold.co/800x600.png"
-              alt="Mapa aéreo da localização do Aldeia do Vale em Pirenópolis"
-              data-ai-hint="aerial map"
-              width={800}
-              height={600}
-              className="h-full w-full object-cover"
-            />
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15353.474273904394!2d-48.96939489115632!3d-15.837214507076427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935c690055edc069%3A0x83edd2c0d89d5cce!2sAldeia%20Do%20Vale%20Piren%C3%B3polis!5e0!3m2!1spt-BR!2sbr!4v1755448506574!5m2!1spt-BR!2sbr" 
+                width="100%" 
+                height="100%" 
+                style={{border:0}} 
+                allowFullScreen={true}
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-full w-full"
+            ></iframe>
           </div>
         </div>
       </div>
