@@ -3,7 +3,7 @@ import { WistiaPlayer } from "./wistia-player";
 
 export default function CopySection() {
   return (
-    <section className="bg-background py-16 sm:py-24">
+    <section className="bg-background pt-16 sm:pt-24">
       <div className="container mx-auto max-w-4xl px-4">
         <div className="mx-auto mb-12 max-w-5xl">
             <WistiaPlayer />
@@ -26,13 +26,13 @@ export default function CopySection() {
           </p>
         </div>
       </div>
-        <div className="my-12 w-full">
+        <div className="mt-12 w-full">
             <Image 
                 src="https://i.imgur.com/CooAy3V.jpeg"
                 alt="Detalhe da arquitetura do Aldeia do Vale"
                 width={1920}
                 height={600}
-                className="h-auto w-full rounded-none object-cover shadow-lg md:rounded-lg"
+                className="h-auto w-full rounded-none object-cover shadow-lg md:rounded-none"
             />
         </div>
       <div className="container mx-auto max-w-4xl px-4">
