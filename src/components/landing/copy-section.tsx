@@ -36,11 +36,7 @@ export default function CopySection() {
             />
         </div>
       <div className="container mx-auto max-w-4xl px-4">
-        <div className="mt-8 border-l-4 border-accent pl-6">
-            <p className="font-headline text-2xl italic text-foreground">
-                Aldeia do Vale Pirenópolis — um lugar único, para quem deseja viver o extraordinário todos os dias.
-            </p>
-        </div>
+        
       </div>
     </section>
   );
