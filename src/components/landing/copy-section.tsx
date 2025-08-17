@@ -4,7 +4,7 @@ export default function CopySection() {
   return (
     <section className="bg-background pt-16 sm:pt-24">
       <div className="container mx-auto max-w-7xl px-4">
-        <div className="mx-auto mb-12">
+        <div className="mx-auto mb-12 max-w-5xl">
             <WistiaPlayer />
         </div>
         <div className="mx-auto max-w-4xl">
