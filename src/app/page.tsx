@@ -8,7 +8,6 @@ import InfoSection from "@/components/landing/info-section";
 import Localizacao from "@/components/landing/localizacao";
 import Galeria from "@/components/landing/galeria";
 import Sobre from "@/components/landing/sobre";
-import Depoimentos from "@/components/landing/depoimentos";
 import Faq from "@/components/landing/faq";
 import Contato from "@/components/landing/contato";
 import Footer from "@/components/landing/footer";
@@ -30,7 +29,6 @@ export default function Home() {
         <Localizacao />
         <Galeria />
         <Sobre />
-        <Depoimentos />
         <Faq />
         <Contato />
       </main>
