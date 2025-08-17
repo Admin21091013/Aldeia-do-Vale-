@@ -5,14 +5,14 @@ export default function Sobre() {
     <section id="sobre" className="bg-background">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-          <div className="h-96 w-full overflow-hidden rounded-2xl shadow-lg lg:h-[500px]">
+          <div className="h-96 w-full overflow-hidden rounded-2xl p-8 shadow-lg lg:h-[500px]">
             <Image
-              src="https://placehold.co/800x1000.png"
-              alt="Sede da Duprime Imobiliária em Brasília"
-              data-ai-hint="modern building facade"
+              src="https://i.imgur.com/LXxMZPH.png"
+              alt="Logo da Duprime Imobiliária"
+              data-ai-hint="company logo"
               width={800}
               height={1000}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-contain"
             />
           </div>
           <div className="text-center lg:text-left">
