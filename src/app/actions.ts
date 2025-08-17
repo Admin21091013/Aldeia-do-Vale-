@@ -2,37 +2,6 @@
 
 import * as z from "zod";
 
-// Schema for the main contact form
-const inquiryFormSchema = z.object({
-  name: z.string().min(2),
-  phone: z.string().min(10),
-  email: z.string().email(),
-  city: z.string().optional(),
-  interest: z.enum(["Investir", "Morar", "Ambos"]),
-  contactTime: z.enum(["Manhã", "Tarde", "Noite"]),
-  lgpd: z.literal(true),
-});
-
-export async function submitInquiry(data: unknown) {
-  const validation = inquiryFormSchema.safeParse(data);
-
-  if (!validation.success) {
-    return {
-      success: false,
-      message: "Dados inválidos. Por favor, verifique o formulário.",
-    };
-  }
-  
-  console.log("New inquiry received:", validation.data);
-  
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  
-  return {
-    success: true,
-    message: "Inquiry submitted successfully!",
-  };
-}
-
 // Schema for the hero form
 const heroFormSchema = z.object({
   name: z.string().min(2, "Nome é obrigatório"),

@@ -8,7 +8,6 @@ import InfoSection from "@/components/landing/info-section";
 import Localizacao from "@/components/landing/localizacao";
 import Galeria from "@/components/landing/galeria";
 import Sobre from "@/components/landing/sobre";
-import Contato from "@/components/landing/contato";
 import Footer from "@/components/landing/footer";
 import FloatingWhatsapp from "@/components/landing/floating-whatsapp";
 import { ContactModal } from "@/components/landing/contact-modal";
@@ -28,7 +27,6 @@ export default function Home() {
         <Localizacao />
         <Galeria />
         <Sobre />
-        <Contato />
       </main>
       <FloatingWhatsapp />
       <Footer />
