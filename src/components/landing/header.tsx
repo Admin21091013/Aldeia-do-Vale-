@@ -14,7 +14,6 @@ const navLinks = [
   { href: "#localizacao", label: "Localização" },
   { href: "#galeria", label: "Galeria" },
   { href: "#sobre", label: "Sobre" },
-  { href: "#faq", label: "FAQ" },
 ];
 
 const WHATSAPP_LINK = "https://wa.me/5562999999999?text=Tenho%20interesse%20no%20Aldeia%20do%20Vale%20%E2%80%93%20Piren%C3%B3polis.";
