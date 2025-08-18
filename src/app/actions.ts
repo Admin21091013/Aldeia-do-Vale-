@@ -22,12 +22,40 @@ export async function submitHeroForm(data: unknown) {
     };
   }
   
-  console.log("New hero form submission:", validation.data);
+  const webhookUrl = "https://hooks.zapier.com/hooks/catch/24253519/ut66r62/";
+  const { name, email, phone, userType } = validation.data;
 
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  
-  return {
-    success: true,
-    message: "Recebemos seu interesse. Em breve, um de nossos especialistas entrará em contato!",
-  };
+  try {
+    const response = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        nome: name,
+        email: email,
+        telefone: phone,
+        tipo: userType,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Falha ao enviar os dados para o webhook.");
+    }
+    
+    console.log("New hero form submission sent to Zapier:", validation.data);
+
+    return {
+      success: true,
+      message: "Recebemos seu interesse. Em breve, um de nossos especialistas entrará em contato!",
+    };
+
+  } catch (error) {
+    console.error("Error sending to webhook:", error);
+    const errorMessage = error instanceof Error ? error.message : "Ocorreu um problema ao enviar seu formulário.";
+    return {
+      success: false,
+      message: errorMessage,
+    };
+  }
 }
