@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -22,6 +23,11 @@ export default function Footer() {
             <h3 className="font-headline text-xl">Contato</h3>
             <p className="mt-2 text-sm text-primary-foreground/70">E-mail: contato@duprimeimob.com.br</p>
             <p className="mt-1 text-sm text-primary-foreground/70">WhatsApp: (62) 99999-9999</p>
+            <div className="mt-4 flex justify-center md:justify-start">
+              <Link href="https://www.instagram.com/duprimeimobiliaria?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <Instagram className="h-6 w-6 text-primary-foreground/70 transition-colors hover:text-primary-foreground" />
+              </Link>
+            </div>
           </div>
         </div>
         <div className="mt-8 border-t border-primary-foreground/20 pt-8 text-center text-sm text-primary-foreground/60">
