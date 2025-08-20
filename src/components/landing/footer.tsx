@@ -1,11 +1,7 @@
 import Link from "next/link";
 import { Instagram } from "lucide-react";
 
-interface FooterProps {
-    onIndicationClick: () => void;
-}
-
-export default function Footer({ onIndicationClick }: FooterProps) {
+export default function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-12">
@@ -38,7 +34,6 @@ export default function Footer({ onIndicationClick }: FooterProps) {
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <p>&copy; {new Date().getFullYear()} Aldeia do Vale & Duprime Imobiliária. Todos os direitos reservados.</p>
             <div className="flex gap-4">
-              <button onClick={onIndicationClick} className="hover:underline">Indicação Privada</button>
               <Link href="#" className="hover:underline">Política de Privacidade</Link>
               <Link href="#" className="hover:underline">Termos de Uso</Link>
             </div>
