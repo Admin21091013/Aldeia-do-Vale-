@@ -70,8 +70,16 @@ export function IndicationModal({ isOpen, onClose, indicatorData }: IndicationMo
         indicatorEmail: indicatorData.email,
         indicatorPhone: indicatorData.phone,
       });
+    } else {
+        // Clear indicator data if modal is opened without it (e.g. from footer)
+        form.reset({
+            ...form.getValues(),
+            indicatorName: '',
+            indicatorEmail: '',
+            indicatorPhone: '',
+        });
     }
-  }, [indicatorData, form]);
+  }, [indicatorData, form, isOpen]);
 
   async function onSubmit(values: IndicationFormData) {
     const result = await submitIndicationForm(values);
@@ -93,7 +101,7 @@ export function IndicationModal({ isOpen, onClose, indicatorData }: IndicationMo
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-lg">
         <DialogHeader className="text-center">
           <DialogTitle className="font-headline text-2xl">Convite Privado Aldeia do Vale</DialogTitle>
           <DialogDescription>
@@ -101,7 +109,7 @@ export function IndicationModal({ isOpen, onClose, indicatorData }: IndicationMo
           </DialogDescription>
         </DialogHeader>
         
-        <div className="text-xs text-muted-foreground bg-accent/20 p-3 rounded-md">
+        <div className="bg-muted/50 p-3 rounded-md text-xs text-muted-foreground">
             <ul className="list-disc list-inside space-y-1">
                 <li>Day-spa + jantar para 2 no hotel parceiro</li>
                 <li>Sessão concierge de interiores/paisagismo</li>
@@ -111,19 +119,18 @@ export function IndicationModal({ isOpen, onClose, indicatorData }: IndicationMo
         </div>
         
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 py-4">
             
             {indicatorData && (
-                <div className="space-y-2 rounded-md border bg-muted/50 p-3">
-                    <h4 className="text-sm font-medium">Seus Dados (Indicador)</h4>
-                    <Input readOnly value={indicatorData.name} />
-                    <Input readOnly value={indicatorData.email} />
-                    <Input readOnly value={indicatorData.phone} />
+                <div className="space-y-2 rounded-lg border bg-background p-4">
+                    <h4 className="font-medium text-foreground">Seus Dados (Indicador)</h4>
+                    <p className="text-sm text-muted-foreground">{indicatorData.name}</p>
+                    <p className="text-sm text-muted-foreground">{indicatorData.email}</p>
                 </div>
             )}
             
-            <div className="space-y-2">
-                <h4 className="text-sm font-medium">Dados do Indicado</h4>
+            <div className="space-y-4">
+                <h4 className="font-medium text-foreground">Dados do Indicado</h4>
                 <FormField control={form.control} name="indicatedName" render={({ field }) => (
                     <FormItem><FormControl><Input placeholder="Nome completo do indicado" {...field} /></FormControl><FormMessage /></FormItem>
                 )}/>
@@ -137,7 +144,7 @@ export function IndicationModal({ isOpen, onClose, indicatorData }: IndicationMo
                     <FormItem>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
-                                <SelectTrigger><SelectValue placeholder="Relação com você" /></SelectTrigger>
+                                <SelectTrigger><SelectValue placeholder="Qual a sua relação com o indicado?" /></SelectTrigger>
                             </FormControl>
                             <SelectContent>
                                 <SelectItem value="Família">Família</SelectItem>
@@ -157,25 +164,31 @@ export function IndicationModal({ isOpen, onClose, indicatorData }: IndicationMo
                  <FormField control={form.control} name="consentContact" render={({ field }) => (
                     <FormItem className="flex flex-row items-start space-x-3 space-y-0">
                         <FormControl><Checkbox checked={field.value} onCheckedChange={field.onChange} /></FormControl>
-                        <div className="space-y-1 leading-none"><FormLabel className="text-xs">Autorizo o contato com o indicado exclusivamente para este convite.</FormLabel><FormMessage/></div>
+                        <div className="space-y-1 leading-none">
+                            <FormLabel className="text-sm font-normal">Autorizo o contato com o indicado exclusivamente para este convite.</FormLabel>
+                            <FormMessage/>
+                        </div>
                     </FormItem>
                  )}/>
                  <FormField control={form.control} name="consentPermission" render={({ field }) => (
                     <FormItem className="flex flex-row items-start space-x-3 space-y-0">
                         <FormControl><Checkbox checked={field.value} onCheckedChange={field.onChange} /></FormControl>
-                        <div className="space-y-1 leading-none"><FormLabel className="text-xs">Confirmo que tenho permissão do indicado para compartilhar estes dados.</FormLabel><FormMessage/></div>
+                        <div className="space-y-1 leading-none">
+                            <FormLabel className="text-sm font-normal">Confirmo que tenho permissão do indicado para compartilhar estes dados.</FormLabel>
+                            <FormMessage/>
+                        </div>
                     </FormItem>
                  )}/>
             </div>
 
-            <DialogFooter className="gap-2 sm:justify-between">
-                <Button type="button" variant="link" onClick={onClose} className="p-0 h-auto">Agora não</Button>
-                <Button type="submit">Enviar convite</Button>
+            <DialogFooter className="!mt-6 flex-col-reverse sm:flex-row sm:justify-between sm:space-x-2">
+                <Button type="button" variant="ghost" onClick={onClose} className="sm:mr-auto">Agora não</Button>
+                <Button type="submit" className="w-full sm:w-auto">Enviar convite</Button>
             </DialogFooter>
           </form>
         </Form>
-        <p className="text-xs text-muted-foreground text-center pt-2">
-            O convite é pessoal e analisado individualmente para preservar a experiência e a exclusividade do empreendimento. Dados tratados conforme LGPD. Não compartilhamos com terceiros sem consentimento.
+        <p className="text-center text-xs text-muted-foreground">
+            O convite é pessoal e analisado individualmente para preservar a experiência e a exclusividade do empreendimento. Dados tratados conforme LGPD.
         </p>
       </DialogContent>
     </Dialog>
