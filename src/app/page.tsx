@@ -12,15 +12,28 @@ import FloatingWhatsapp from "@/components/landing/floating-whatsapp";
 import { ContactModal } from "@/components/landing/contact-modal";
 import { GaleriaCombinada } from "@/components/landing/galeria-combinada";
 import { type HeroFormData } from "@/app/actions";
+import { IndicationModal } from "@/components/landing/indication-modal";
 
 export default function Home() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isIndicationModalOpen, setIsIndicationModalOpen] = useState(false);
+  const [indicatorData, setIndicatorData] = useState<HeroFormData | null>(null);
 
   const openContactModal = () => setIsContactModalOpen(true);
   const closeContactModal = () => setIsContactModalOpen(false);
+
+  const closeIndicationModal = () => {
+    setIsIndicationModalOpen(false);
+    setIndicatorData(null);
+  };
   
   const handleSuccessfulSubmit = (data: HeroFormData) => {
     closeContactModal();
+    // Open the indication modal after a short delay
+    setTimeout(() => {
+      setIndicatorData(data);
+      setIsIndicationModalOpen(true);
+    }, 500);
   };
 
   return (
@@ -41,6 +54,13 @@ export default function Home() {
         onClose={closeContactModal} 
         onSuccessfulSubmit={handleSuccessfulSubmit} 
       />
+      {indicatorData && (
+        <IndicationModal
+          isOpen={isIndicationModalOpen}
+          onClose={closeIndicationModal}
+          indicator={indicatorData}
+        />
+      )}
     </div>
   );
 }

@@ -64,3 +64,69 @@ export async function submitHeroForm(data: unknown) {
     };
   }
 }
+
+
+// Schema for the indication form
+const indicationFormSchema = z.object({
+    indicatorName: z.string(),
+    indicatorEmail: z.string(),
+    indicatedName: z.string().min(2, "Nome do indicado é obrigatório."),
+    indicatedEmail: z.string().email("E-mail do indicado inválido."),
+    indicatedPhone: z.string().optional(),
+    consent: z.boolean().refine(val => val === true, {
+        message: "O consentimento é obrigatório.",
+    }),
+});
+
+export type IndicationFormData = z.infer<typeof indicationFormSchema>;
+
+export async function submitIndicationForm(data: unknown) {
+    const validation = indicationFormSchema.safeParse(data);
+
+    if (!validation.success) {
+        const errorMessages = validation.error.issues.map(issue => issue.message).join(", ");
+        return {
+            success: false,
+            message: `Dados inválidos: ${errorMessages}`,
+        };
+    }
+
+    const webhookUrl = "https://hooks.zapier.com/hooks/catch/24253519/ut66r62/";
+    const { indicatorName, indicatorEmail, indicatedName, indicatedEmail, indicatedPhone } = validation.data;
+
+    try {
+        const response = await fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                indicador_nome: indicatorName,
+                indicador_email: indicatorEmail,
+                indicado_nome: indicatedName,
+                indicado_email: indicatedEmail,
+                indicado_telefone: indicatedPhone,
+                source: 'indication-form'
+            }),
+        });
+
+        if (!response.ok) {
+            throw new Error("Falha ao enviar os dados de indicação para o webhook.");
+        }
+        
+        console.log("New indication form submission sent to Zapier:", validation.data);
+
+        return {
+            success: true,
+            message: "Obrigado. Seu convite foi enviado com exclusividade pelo nosso concierge.",
+        };
+
+    } catch (error) {
+        console.error("Error sending indication to webhook:", error);
+        const errorMessage = error instanceof Error ? error.message : "Ocorreu um problema ao enviar sua indicação.";
+        return {
+            success: false,
+            message: errorMessage,
+        };
+    }
+}
