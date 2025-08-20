@@ -10,7 +10,7 @@ import Sobre from "@/components/landing/sobre";
 import Footer from "@/components/landing/footer";
 import FloatingWhatsapp from "@/components/landing/floating-whatsapp";
 import { ContactModal } from "@/components/landing/contact-modal";
-import { GaleriaVideo } from "@/components/landing/galeria-video";
+import { GaleriaCombinada } from "@/components/landing/galeria-combinada";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,7 +25,7 @@ export default function Home() {
         <CopySection />
         <InfoSection />
         <Localizacao />
-        <GaleriaVideo />
+        <GaleriaCombinada />
         <Sobre />
       </main>
       <FloatingWhatsapp />
