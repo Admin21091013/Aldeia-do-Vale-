@@ -15,7 +15,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
-import { submitHeroForm } from "@/app/actions";
+import { submitHeroForm, HeroFormData } from "@/app/actions";
 import { useState } from "react";
 
 const heroFormSchema = z.object({
@@ -25,13 +25,15 @@ const heroFormSchema = z.object({
   userType: z.enum(["Cliente", "Corretor"]),
 });
 
-type FormData = z.infer<typeof heroFormSchema>;
+interface HeroFormProps {
+    onSuccessfulSubmit: (data: HeroFormData) => void;
+}
 
-export function HeroForm() {
+export function HeroForm({ onSuccessfulSubmit }: HeroFormProps) {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const form = useForm<FormData>({
+  const form = useForm<HeroFormData>({
     resolver: zodResolver(heroFormSchema),
     defaultValues: {
       name: "",
@@ -41,16 +43,17 @@ export function HeroForm() {
     },
   });
 
-  async function onSubmit(values: FormData) {
+  async function onSubmit(values: HeroFormData) {
     setIsSubmitting(true);
     try {
       const result = await submitHeroForm(values);
-      if (result.success) {
+      if (result.success && result.data) {
         toast({
           title: "Sucesso!",
           description: result.message,
         });
         form.reset();
+        onSuccessfulSubmit(result.data);
       } else {
         throw new Error(result.message);
       }

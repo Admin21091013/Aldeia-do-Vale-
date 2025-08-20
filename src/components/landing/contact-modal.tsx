@@ -8,8 +8,15 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { HeroForm } from "./hero-form";
+import { HeroFormData } from "@/app/actions";
 
-export function ContactModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void; }) {
+interface ContactModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onSuccessfulSubmit: (data: HeroFormData) => void;
+}
+
+export function ContactModal({ isOpen, onClose, onSuccessfulSubmit }: ContactModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px]">
@@ -19,7 +26,7 @@ export function ContactModal({ isOpen, onClose }: { isOpen: boolean; onClose: ()
             Preencha o formulário para receber em primeira mão a tabela de preços e o masterplan do Aldeia do Vale.
           </DialogDescription>
         </DialogHeader>
-        <HeroForm />
+        <HeroForm onSuccessfulSubmit={onSuccessfulSubmit} />
       </DialogContent>
     </Dialog>
   );
