@@ -91,7 +91,7 @@ export async function submitIndicationForm(data: unknown) {
         };
     }
 
-    const webhookUrl = "https://hooks.zapier.com/hooks/catch/24253519/ut66r62/";
+    const webhookUrl = "https://hooks.zapier.com/hooks/catch/24298038/ut896v6/";
     const { indicatorName, indicatorEmail, indicatedName, indicatedEmail, indicatedPhone } = validation.data;
 
     try {
