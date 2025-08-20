@@ -10,12 +10,7 @@ import {
 } from "@/components/ui/carousel";
 
 const galleryImages = [
-  { src: "https://placehold.co/1200x800.png", alt: "Vista do morro ao amanhecer", hint: "mountain sunrise" },
-  { src: "https://placehold.co/1200x800.png", alt: "Trilha em meio à natureza", hint: "forest trail" },
-  { src: "https://placehold.co/1200x800.png", alt: "Lago cristalino cercado de verde", hint: "clear lake" },
-  { src: "https://placehold.co/1200x800.png", alt: "Pôr do sol visto do condomínio", hint: "sunset view" },
-  { src: "https://placehold.co/1200x800.png", alt: "Família aproveitando a área de lazer", hint: "family outdoors" },
-  { src: "https://placehold.co/1200x800.png", alt: "Pessoas praticando esportes aquáticos no lago", hint: "water sports" },
+  { src: "https://i.imgur.com/HpuHqk3.jpeg", alt: "Entrada do condomínio Aldeia do Vale", hint: "condominium entrance" },
 ];
 
 export default function Galeria() {
