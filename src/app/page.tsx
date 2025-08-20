@@ -6,11 +6,11 @@ import Hero from "@/components/landing/hero";
 import CopySection from "@/components/landing/copy-section";
 import InfoSection from "@/components/landing/info-section";
 import Localizacao from "@/components/landing/localizacao";
-import Galeria from "@/components/landing/galeria";
 import Sobre from "@/components/landing/sobre";
 import Footer from "@/components/landing/footer";
 import FloatingWhatsapp from "@/components/landing/floating-whatsapp";
 import { ContactModal } from "@/components/landing/contact-modal";
+import { GaleriaVideo } from "@/components/landing/galeria-video";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,7 +25,7 @@ export default function Home() {
         <CopySection />
         <InfoSection />
         <Localizacao />
-        <Galeria />
+        <GaleriaVideo />
         <Sobre />
       </main>
       <FloatingWhatsapp />
