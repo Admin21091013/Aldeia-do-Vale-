@@ -1,5 +1,6 @@
 import { GaleriaVideo } from "./galeria-video";
 import Galeria from "./galeria";
+import { GaleriaVideo2 } from "./galeria-video-2";
 
 export function GaleriaCombinada() {
   return (
@@ -10,9 +11,10 @@ export function GaleriaCombinada() {
           Explore a beleza natural e o estilo de vida que esperam por você no Aldeia do Vale.
         </p>
       </div>
-      <div className="container mx-auto mt-12 grid max-w-5xl grid-cols-1 gap-8 px-4 md:grid-cols-2">
+      <div className="container mx-auto mt-12 grid max-w-7xl grid-cols-1 gap-8 px-4 md:grid-cols-3">
         <GaleriaVideo />
         <Galeria />
+        <GaleriaVideo2 />
       </div>
     </section>
   );
