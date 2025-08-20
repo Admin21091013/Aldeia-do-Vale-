@@ -32,15 +32,15 @@ export default function Galeria() {
         >
           <CarouselContent>
             {galleryImages.map((image, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4">
                 <div className="p-1">
-                   <div className="aspect-video w-full overflow-hidden rounded-2xl">
+                   <div className="aspect-[9/16] w-full overflow-hidden rounded-2xl">
                     <Image
                       src={image.src}
                       alt={image.alt}
                       data-ai-hint={image.hint}
-                      width={1200}
-                      height={800}
+                      width={900}
+                      height={1600}
                       className="h-full w-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
                     />
                   </div>
