@@ -61,6 +61,7 @@ export function IndicationModal({ isOpen, onClose, indicator }: IndicationModalP
         ...values,
         indicatorName: indicator.name,
         indicatorEmail: indicator.email,
+        consent: values.consent,
       };
       
       const result = await submitIndicationForm(fullData);
