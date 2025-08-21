@@ -20,7 +20,7 @@ export default function Footer() {
             <p className="mt-2 text-sm text-primary-foreground/70">Duprime Imobiliária – CRECI-DF 25.605</p>
             <p className="mt-1 text-sm text-primary-foreground/70">Sede: Lago Sul – Brasília/DF</p>
             <div className="mt-4 flex justify-center md:justify-start">
-              <Image src="https://i.imgur.com/LXxMZPH.png" alt="Logo da Duprime Imobiliária" width={120} height={60} className="object-contain" />
+              <Image src="https://i.imgur.com/zYIwPk2.jpeg" alt="Logo da Duprime Imobiliária" width={120} height={60} className="object-contain" />
             </div>
           </div>
           <div>
