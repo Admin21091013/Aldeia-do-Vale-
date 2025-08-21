@@ -12,8 +12,8 @@ export function GaleriaCombinada() {
         </p>
       </div>
       <div className="container mx-auto mt-12 grid max-w-7xl grid-cols-1 gap-8 px-4 md:grid-cols-3">
-        <GaleriaVideo />
         <Galeria />
+        <GaleriaVideo />
         <GaleriaVideo2 />
       </div>
     </section>
