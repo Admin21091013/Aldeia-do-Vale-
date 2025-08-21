@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { MessageSquare } from "lucide-react";
 import Link from "next/link";
 
-const WHATSAPP_LINK = "https://wa.me/5562999999999?text=Tenho%20interesse%20no%20Aldeia%20do%20Vale%20%E2%80%93%20Piren%C3%B3polis.";
+const WHATSAPP_LINK = "https://wa.me/5561991145666?text=Tenho%20interesse%20no%20Aldeia%20do%20Vale%20%E2%80%93%20Piren%C3%B3polis.";
 
 export default function FloatingWhatsapp() {
   return (

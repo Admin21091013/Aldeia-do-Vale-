@@ -16,7 +16,7 @@ const navLinks = [
   { href: "#sobre", label: "Sobre" },
 ];
 
-const WHATSAPP_LINK = "https://wa.me/5562999999999?text=Tenho%20interesse%20no%20Aldeia%20do%20Vale%20%E2%80%93%20Piren%C3%B3polis.";
+const WHATSAPP_LINK = "https://wa.me/5561991145666?text=Tenho%20interesse%20no%20Aldeia%20do%20Vale%20%E2%80%93%20Piren%C3%B3polis.";
 
 export default function Header({ onReserveClick }: { onReserveClick: () => void; }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
