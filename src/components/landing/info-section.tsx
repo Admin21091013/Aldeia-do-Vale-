@@ -63,7 +63,7 @@ export default function InfoSection() {
           </div>
         </div>
       </div>
-       <div className="container mx-auto max-w-5xl px-4">
+       <div className="container mx-auto max-w-5xl px-4 pb-8 sm:pb-12">
           <LeafSeparator />
       </div>
     </section>
