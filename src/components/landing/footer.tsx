@@ -17,9 +17,6 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="font-headline text-xl">Realização</h3>
-            <div className="mt-4 flex items-center justify-center md:justify-start">
-                 <Image src="https://i.imgur.com/3RtNwCz.png" alt="Aldeia do Vale Logo" width={150} height={40} className="object-contain" />
-            </div>
             <p className="mt-2 text-sm text-primary-foreground/70">Duprime Imobiliária – CRECI-DF 25.605</p>
             <p className="mt-1 text-sm text-primary-foreground/70">Sede: Lago Sul – Brasília/DF</p>
           </div>
