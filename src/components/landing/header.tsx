@@ -44,7 +44,7 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <div className="flex items-center">
             <Link href="#inicio" className="flex items-center gap-2" onClick={handleLinkClick}>
-                <Image src="https://i.imgur.com/3RtNwCz.png" alt="Aldeia do Vale Logo" width={150} height={40} className="object-contain" />
+                <span className="font-headline text-2xl">Aldeia do Vale</span>
             </Link>
         </div>
         
@@ -90,7 +90,7 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
               <div className="flex h-full flex-col">
                 <div className="flex items-center justify-between border-b border-border pb-4">
                     <Link href="#inicio" className="flex items-center gap-2" onClick={handleLinkClick}>
-                        <Image src="https://i.imgur.com/3RtNwCz.png" alt="Aldeia do Vale Logo" width={150} height={40} className="object-contain" />
+                         <span className="font-headline text-2xl">Aldeia do Vale</span>
                     </Link>
                     <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
                         <X className="h-6 w-6" />
