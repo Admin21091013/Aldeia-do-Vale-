@@ -5,6 +5,9 @@ import { Toaster } from "@/components/ui/toaster";
 export const metadata: Metadata = {
   title: "Aldeia do Vale – Pirenópolis | Terrenos de luxo na natureza (152 unidades)",
   description: "Terrenos a partir de 1.250 m² aos pés do Morro do Frota, a 5 minutos da Igreja Matriz. Infraestrutura completa, exclusividade real. Cadastre-se e receba tabela e masterplan.",
+  icons: {
+    icon: "https://i.imgur.com/IbGC33N.png",
+  },
   openGraph: {
     title: "Aldeia do Vale – Pirenópolis | Terrenos de luxo na natureza (152 unidades)",
     description: "Terrenos a partir de 1.250 m² aos pés do Morro do Frota, a 5 minutos da Igreja Matriz. Infraestrutura completa, exclusividade real. Cadastre-se e receba tabela e masterplan.",
