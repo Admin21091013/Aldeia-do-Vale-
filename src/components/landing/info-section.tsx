@@ -40,6 +40,9 @@ export default function InfoSection() {
           <p className="mt-4 text-lg text-accent-foreground/80">
             São 152 terrenos únicos, com uma proposta de exclusividade, requinte e alto padrão de viver bem.
           </p>
+          <p className="mt-4 text-lg text-accent-foreground/80">
+            Terrenos a partir de 1.211m², com valores iniciais de R$ 1.105.000,00. Serão apenas 152 unidades disponiveis. Localizado aos pés do Morro do Frota e a 5 minutos da Igreja Matriz em Pirenópolis.
+          </p>
         </div>
         
         <div className="mt-16 grid grid-cols-1 items-start justify-items-center gap-8 md:grid-cols-2">
