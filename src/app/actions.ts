@@ -92,7 +92,7 @@ export async function submitIndicationForm(data: unknown) {
     }
 
     const webhookUrl = "https://hooks.zapier.com/hooks/catch/24298038/ut896v6/";
-    const { indicatorName, indicatorEmail, indicatedName, indicatedEmail, indicatedPhone } = validation.data;
+    const { indicatorName, indicatorEmail, indicatedName, indicatedEmail, indicatedPhone, consent } = validation.data;
 
     try {
         const response = await fetch(webhookUrl, {
@@ -101,11 +101,14 @@ export async function submitIndicationForm(data: unknown) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
+                data: new Date().toISOString(),
                 indicador_nome: indicatorName,
                 indicador_email: indicatorEmail,
                 indicado_nome: indicatedName,
                 indicado_email: indicatedEmail,
                 indicado_telefone: indicatedPhone,
+                permissao: consent ? "Sim" : "Não",
+                status: "Novo",
                 source: 'indication-form'
             }),
         });
