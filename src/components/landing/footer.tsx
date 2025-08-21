@@ -16,7 +16,7 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="font-headline text-xl">Realização</h3>
-            <p className="mt-2 text-sm text-primary-foreground/70">Duprime Imobiliária – CRECI-DF 25.435</p>
+            <p className="mt-2 text-sm text-primary-foreground/70">Duprime Imobiliária – CRECI-DF 25.605</p>
             <p className="mt-1 text-sm text-primary-foreground/70">Sede: Lago Sul – Brasília/DF</p>
           </div>
           <div>
