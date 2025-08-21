@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Separator } from "@/components/ui/separator";
 
 export default function InfoSection() {
   return (
@@ -12,7 +13,7 @@ export default function InfoSection() {
                 className="h-auto w-full rounded-none object-cover shadow-lg md:rounded-none"
             />
         </div>
-      <div className="container mx-auto px-4 py-16 sm:py-24">
+      <div className="container mx-auto px-4 pt-16 sm:pt-24 pb-12 sm:pb-16">
         <div className="mx-auto max-w-3xl text-center text-accent-foreground">
           <h2 className="font-headline text-3xl md:text-4xl">Está pensando em investir?</h2>
           <p className="mt-4 text-lg text-accent-foreground/80">
@@ -40,6 +41,9 @@ export default function InfoSection() {
             />
           </div>
         </div>
+      </div>
+       <div className="container mx-auto max-w-5xl px-4">
+          <Separator className="bg-primary/20" />
       </div>
     </section>
   );
