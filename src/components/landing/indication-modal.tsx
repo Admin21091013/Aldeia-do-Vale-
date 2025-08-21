@@ -93,7 +93,8 @@ export function IndicationModal({ isOpen, onClose, indicator }: IndicationModalP
         <DialogHeader>
           <DialogTitle className="font-headline text-2xl">Convite Privado Aldeia do Vale</DialogTitle>
           <DialogDescription>
-            Você já faz parte desse privilégio. Quer convidar alguém especial para conhecer também?
+            Você conhece alguém que merece viver neste padrão? <br />
+            Indique e receba recompensas exclusivas pelo nosso programa de indicação
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
