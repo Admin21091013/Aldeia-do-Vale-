@@ -43,9 +43,8 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <div className="flex items-center">
-            <Link href="#inicio" className="flex items-center gap-2" onClick={handleLinkClick}>
-                <Image src="https://i.imgur.com/MFcn967.png" alt="Aldeia do Vale Logo" width={24} height={24} />
-                <span className="font-headline text-2xl">Aldeia do Vale</span>
+            <Link href="#inicio" className="flex items-center" onClick={handleLinkClick}>
+                <Image src="https://i.imgur.com/1xmmOFX.png" alt="Duprime Logo" width={120} height={30} />
             </Link>
         </div>
         
@@ -90,9 +89,8 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
           <SheetContent side="right" className="w-full bg-background text-foreground">
               <div className="flex h-full flex-col">
                 <div className="flex items-center justify-between border-b border-border pb-4">
-                    <Link href="#inicio" className="flex items-center gap-2" onClick={handleLinkClick}>
-                        <Image src="https://i.imgur.com/MFcn967.png" alt="Aldeia do Vale Logo" width={24} height={24} />
-                        <span className="font-headline text-2xl">Aldeia do Vale</span>
+                    <Link href="#inicio" className="flex items-center" onClick={handleLinkClick}>
+                         <Image src="https://i.imgur.com/1xmmOFX.png" alt="Duprime Logo" width={120} height={30} />
                     </Link>
                     <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
                         <X className="h-6 w-6" />
