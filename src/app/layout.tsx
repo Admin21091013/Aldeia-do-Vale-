@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     description: "Terrenos a partir de 1.250 m² aos pés do Morro do Frota, a 5 minutos da Igreja Matriz. Infraestrutura completa, exclusividade real. Cadastre-se e receba tabela e masterplan.",
     images: ["https://placehold.co/1200x630/0F3D3E/E9E4DA?text=Aldeia+do+Vale"],
   },
+  icons: null,
 };
 
 export default function RootLayout({
