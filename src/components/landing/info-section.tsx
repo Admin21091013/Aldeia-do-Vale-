@@ -24,7 +24,7 @@ function LeafSeparator() {
 
 export default function InfoSection() {
   return (
-    <section id="diferenciais" className="bg-accent pt-0 sm:pt-0">
+    <section id="diferenciais" className="bg-accent pt-0 sm:pt-0 pb-0 sm:pb-0">
        <div className="w-full">
             <Image 
                 src="https://i.imgur.com/CooAy3V.jpeg"
@@ -63,7 +63,7 @@ export default function InfoSection() {
           </div>
         </div>
       </div>
-       <div className="container mx-auto max-w-5xl px-4 pb-8 sm:pb-12">
+       <div className="container mx-auto max-w-5xl px-4 py-8 sm:py-12">
           <LeafSeparator />
       </div>
     </section>
