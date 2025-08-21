@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Localizacao() {
   return (
-    <section id="localizacao" className="bg-accent text-accent-foreground pt-8 sm:pt-12">
+    <section id="localizacao" className="bg-accent text-accent-foreground pt-0 sm:pt-0">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div className="text-center lg:text-left">
