@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Instagram, Youtube } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -10,7 +11,7 @@ export default function Footer() {
             <h3 className="font-headline text-xl">Aldeia do Vale Pirenópolis</h3>
             <p className="mt-2 text-sm text-primary-foreground/70">Um novo capítulo em Pirenópolis.</p>
              <div className="mt-4 flex items-center justify-center gap-2 md:justify-start">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white"><path d="M12 2L2 7V17L12 22L22 17V7L12 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M2 7L12 12L22 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M12 12V22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                <Image src="https://i.imgur.com/MFcn967.png" alt="Aldeia do Vale Logo" width={24} height={24} />
                 <p className="font-bold">Aldeia do Vale</p>
             </div>
           </div>
