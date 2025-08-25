@@ -24,7 +24,7 @@ export async function submitHeroForm(data: unknown) {
     };
   }
   
-  const webhookUrl = "https://takerisk.app.n8n.cloud/webhook/formulario-interesse";
+  const webhookUrl = "https://takerisk.app.n8n.cloud/webhook-test/formulario-interesse";
   const { name, email, phone, userType } = validation.data;
 
   try {
@@ -92,7 +92,7 @@ export async function submitIndicationForm(data: unknown) {
         };
     }
     
-    const webhookUrl = "https://takerisk.app.n8n.cloud/webhook-test/formulario-indicação";
+    const webhookUrl = "https://takerisk.app.n8n.cloud/webhook-test/formulario-indica%C3%A7%C3%A3o";
     const { indicatorName, indicatorEmail, indicatedName, indicatedEmail, indicatedPhone } = validation.data;
 
     try {
