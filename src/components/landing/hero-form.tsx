@@ -17,6 +17,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
 import { submitHeroForm, HeroFormData } from "@/app/actions";
 import { useState } from "react";
+import { Separator } from "@/components/ui/separator";
 
 const heroFormSchema = z.object({
   name: z.string().min(2, { message: "Nome completo é obrigatório." }),
@@ -27,11 +28,13 @@ const heroFormSchema = z.object({
 
 interface HeroFormProps {
     onSuccessfulSubmit: (data: HeroFormData) => void;
+    onIndicationClick: () => void;
 }
 
-export function HeroForm({ onSuccessfulSubmit }: HeroFormProps) {
+export function HeroForm({ onSuccessfulSubmit, onIndicationClick }: HeroFormProps) {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionData, setSubmissionData] = useState<HeroFormData | null>(null);
 
   const form = useForm<HeroFormData>({
     resolver: zodResolver(heroFormSchema),
@@ -52,7 +55,7 @@ export function HeroForm({ onSuccessfulSubmit }: HeroFormProps) {
           title: "Sucesso!",
           description: result.message,
         });
-        form.reset();
+        setSubmissionData(result.data); // Save data for indication
         onSuccessfulSubmit(result.data);
       } else {
         throw new Error(result.message);
@@ -68,6 +71,18 @@ export function HeroForm({ onSuccessfulSubmit }: HeroFormProps) {
     }
   }
 
+  const handleIndicationClick = () => {
+    if (submissionData) {
+      onIndicationClick();
+    } else {
+      toast({
+        variant: "destructive",
+        title: "Atenção",
+        description: "Por favor, preencha e envie o formulário principal primeiro.",
+      });
+    }
+  }
+
   return (
     <div className="w-full max-w-md rounded-lg bg-black/30 p-6 backdrop-blur-sm">
       <Form {...form}>
@@ -78,7 +93,7 @@ export function HeroForm({ onSuccessfulSubmit }: HeroFormProps) {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input placeholder="Nome" {...field} className="bg-white text-black placeholder:text-gray-500" />
+                  <Input placeholder="Nome" {...field} className="bg-white text-black placeholder:text-gray-500" disabled={!!submissionData} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -90,7 +105,7 @@ export function HeroForm({ onSuccessfulSubmit }: HeroFormProps) {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input type="email" placeholder="E-mail" {...field} className="bg-white text-black placeholder:text-gray-500" />
+                  <Input type="email" placeholder="E-mail" {...field} className="bg-white text-black placeholder:text-gray-500" disabled={!!submissionData} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -102,7 +117,7 @@ export function HeroForm({ onSuccessfulSubmit }: HeroFormProps) {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input type="tel" placeholder="Telefone" {...field} className="bg-white text-black placeholder:text-gray-500" />
+                  <Input type="tel" placeholder="Telefone" {...field} className="bg-white text-black placeholder:text-gray-500" disabled={!!submissionData} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -121,13 +136,13 @@ export function HeroForm({ onSuccessfulSubmit }: HeroFormProps) {
                   >
                     <FormItem className="flex items-center space-x-2 space-y-0">
                       <FormControl>
-                        <RadioGroupItem value="Cliente" className="border-white text-white" />
+                        <RadioGroupItem value="Cliente" className="border-white text-white" disabled={!!submissionData} />
                       </FormControl>
                       <FormLabel className="font-normal text-white">Cliente</FormLabel>
                     </FormItem>
                     <FormItem className="flex items-center space-x-2 space-y-0">
                       <FormControl>
-                        <RadioGroupItem value="Corretor" className="border-white text-white" />
+                        <RadioGroupItem value="Corretor" className="border-white text-white" disabled={!!submissionData} />
                       </FormControl>
                       <FormLabel className="font-normal text-white">Corretor</FormLabel>
                     </FormItem>
@@ -141,11 +156,30 @@ export function HeroForm({ onSuccessfulSubmit }: HeroFormProps) {
               type="submit" 
               className="w-full bg-accent text-accent-foreground hover:bg-accent/90" 
               size="lg"
-              disabled={isSubmitting}>
-            {isSubmitting ? "Enviando..." : "Enviar"}
+              disabled={isSubmitting || !!submissionData}>
+            {isSubmitting ? "Enviando..." : (submissionData ? "Enviado com Sucesso" : "Enviar")}
           </Button>
         </form>
       </Form>
+
+      {submissionData && (
+        <div className="mt-6 text-center text-white">
+          <Separator className="my-4 bg-white/20" />
+          <p className="mb-2 text-sm">
+            Participe do nosso programa de indicação:
+          </p>
+          <p className="mb-4 text-xs text-white/80">
+            Você conhece alguém que merece viver neste padrão? Indique e receba recompensas exclusivas pelo nosso programa de indicação.
+          </p>
+          <Button
+            onClick={handleIndicationClick}
+            variant="outline"
+            className="w-full border-white/50 text-white hover:bg-white/10 hover:text-white"
+          >
+            Indicar um amigo
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

@@ -14,9 +14,10 @@ interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSuccessfulSubmit: (data: HeroFormData) => void;
+  onIndicationClick: () => void;
 }
 
-export function ContactModal({ isOpen, onClose, onSuccessfulSubmit }: ContactModalProps) {
+export function ContactModal({ isOpen, onClose, onSuccessfulSubmit, onIndicationClick }: ContactModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px]">
@@ -26,7 +27,7 @@ export function ContactModal({ isOpen, onClose, onSuccessfulSubmit }: ContactMod
             Preencha o formulário para receber em primeira mão a tabela de preços e o masterplan do Aldeia do Vale.
           </DialogDescription>
         </DialogHeader>
-        <HeroForm onSuccessfulSubmit={onSuccessfulSubmit} />
+        <HeroForm onSuccessfulSubmit={onSuccessfulSubmit} onIndicationClick={onIndicationClick} />
       </DialogContent>
     </Dialog>
   );

@@ -6,9 +6,10 @@ import { type HeroFormData } from "@/app/actions";
 
 interface HeroProps {
   onSuccessfulSubmit: (data: HeroFormData) => void;
+  onIndicationClick: () => void;
 }
 
-export default function Hero({ onSuccessfulSubmit }: HeroProps) {
+export default function Hero({ onSuccessfulSubmit, onIndicationClick }: HeroProps) {
   return (
     <section id="inicio" className="relative w-full">
       <div className="absolute inset-0 h-full w-full">
@@ -33,7 +34,7 @@ export default function Hero({ onSuccessfulSubmit }: HeroProps) {
             </p>
           </div>
           <div className="flex items-center justify-center">
-            <HeroForm onSuccessfulSubmit={onSuccessfulSubmit} />
+            <HeroForm onSuccessfulSubmit={onSuccessfulSubmit} onIndicationClick={onIndicationClick} />
           </div>
         </div>
       </div>

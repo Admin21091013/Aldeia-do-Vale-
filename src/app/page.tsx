@@ -21,26 +21,23 @@ export default function Home() {
 
   const openContactModal = () => setIsContactModalOpen(true);
   const closeContactModal = () => setIsContactModalOpen(false);
-
+  
+  const openIndicationModal = () => setIsIndicationModalOpen(true);
   const closeIndicationModal = () => {
     setIsIndicationModalOpen(false);
-    setIndicatorData(null);
+    // Keep indicatorData so the form can be reopened with the same data
   };
   
   const handleSuccessfulSubmit = (data: HeroFormData) => {
-    closeContactModal();
-    // Open the indication modal after a short delay
-    setTimeout(() => {
-      setIndicatorData(data);
-      setIsIndicationModalOpen(true);
-    }, 500);
+    setIndicatorData(data);
+    // It doesn't close the contact modal anymore, just prepares data for indication
   };
 
   return (
     <div className="flex min-h-screen flex-col">
       <Header onReserveClick={openContactModal} />
       <main className="flex-1">
-        <Hero onSuccessfulSubmit={handleSuccessfulSubmit} />
+        <Hero onSuccessfulSubmit={handleSuccessfulSubmit} onIndicationClick={openIndicationModal} />
         <CopySection />
         <InfoSection />
         <Localizacao />
@@ -52,7 +49,8 @@ export default function Home() {
       <ContactModal 
         isOpen={isContactModalOpen} 
         onClose={closeContactModal} 
-        onSuccessfulSubmit={handleSuccessfulSubmit} 
+        onSuccessfulSubmit={handleSuccessfulSubmit}
+        onIndicationClick={openIndicationModal}
       />
       {indicatorData && (
         <IndicationModal
