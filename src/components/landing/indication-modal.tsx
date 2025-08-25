@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -16,6 +16,7 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -24,14 +25,17 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { submitIndicationForm, type HeroFormData, type IndicationFormData } from "@/app/actions";
+import { Separator } from "../ui/separator";
 
 interface IndicationModalProps {
   isOpen: boolean;
   onClose: () => void;
-  indicator: HeroFormData;
+  indicator: HeroFormData | null;
 }
 
 const indicationSchema = z.object({
+  indicatorName: z.string().min(2, { message: "Seu nome é obrigatório." }),
+  indicatorEmail: z.string().email({ message: "Seu e-mail é inválido." }),
   indicatedName: z.string().min(2, { message: "Nome do indicado é obrigatório." }),
   indicatedEmail: z.string().email({ message: "E-mail do indicado inválido." }),
   indicatedPhone: z.string().optional(),
@@ -47,6 +51,8 @@ export function IndicationModal({ isOpen, onClose, indicator }: IndicationModalP
   const form = useForm<IndicationFormValues>({
     resolver: zodResolver(indicationSchema),
     defaultValues: {
+      indicatorName: "",
+      indicatorEmail: "",
       indicatedName: "",
       indicatedEmail: "",
       indicatedPhone: "",
@@ -54,17 +60,21 @@ export function IndicationModal({ isOpen, onClose, indicator }: IndicationModalP
     },
   });
 
+  useEffect(() => {
+    if (indicator) {
+      form.setValue("indicatorName", indicator.name);
+      form.setValue("indicatorEmail", indicator.email);
+    } else {
+        form.resetField("indicatorName");
+        form.resetField("indicatorEmail");
+    }
+  }, [indicator, form, isOpen]);
+
+
   const onSubmit = async (values: IndicationFormValues) => {
     setIsSubmitting(true);
     try {
-      const fullData: IndicationFormData = {
-        ...values,
-        indicatorName: indicator.name,
-        indicatorEmail: indicator.email,
-        consent: values.consent,
-      };
-      
-      const result = await submitIndicationForm(fullData);
+      const result = await submitIndicationForm(values);
       
       if (result.success) {
         toast({
@@ -99,42 +109,80 @@ export function IndicationModal({ isOpen, onClose, indicator }: IndicationModalP
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 pt-4">
-            <FormField
-              control={form.control}
-              name="indicatedName"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input placeholder="Nome do indicado" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="indicatedEmail"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input type="email" placeholder="E-mail do indicado" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="indicatedPhone"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input type="tel" placeholder="Telefone (Opcional)" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            <div>
+              <FormLabel className="text-sm font-semibold">Seus Dados</FormLabel>
+              <Separator className="my-2"/>
+              <div className="space-y-4">
+                <FormField
+                  control={form.control}
+                  name="indicatorName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input placeholder="Seu nome" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="indicatorEmail"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input type="email" placeholder="Seu e-mail" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+            </div>
+
+            <div>
+              <FormLabel className="text-sm font-semibold">Dados do Indicado</FormLabel>
+              <Separator className="my-2"/>
+              <div className="space-y-4">
+                <FormField
+                  control={form.control}
+                  name="indicatedName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input placeholder="Nome do indicado" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="indicatedEmail"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input type="email" placeholder="E-mail do indicado" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="indicatedPhone"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input type="tel" placeholder="Telefone (Opcional)" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+            </div>
+
             <FormField
               control={form.control}
               name="consent"

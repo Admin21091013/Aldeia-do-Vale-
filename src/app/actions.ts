@@ -68,8 +68,8 @@ export async function submitHeroForm(data: unknown) {
 
 // Schema for the indication form
 const indicationFormSchema = z.object({
-    indicatorName: z.string(),
-    indicatorEmail: z.string().email(),
+    indicatorName: z.string().min(2, "Seu nome é obrigatório."),
+    indicatorEmail: z.string().email("Seu e-mail é inválido."),
     indicatedName: z.string().min(2, "Nome do indicado é obrigatório."),
     indicatedEmail: z.string().email("E-mail do indicado inválido."),
     indicatedPhone: z.string().optional(),

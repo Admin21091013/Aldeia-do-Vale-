@@ -52,13 +52,11 @@ export default function Home() {
         onSuccessfulSubmit={handleSuccessfulSubmit}
         onIndicationClick={openIndicationModal}
       />
-      {indicatorData && (
-        <IndicationModal
-          isOpen={isIndicationModalOpen}
-          onClose={closeIndicationModal}
-          indicator={indicatorData}
-        />
-      )}
+      <IndicationModal
+        isOpen={isIndicationModalOpen}
+        onClose={closeIndicationModal}
+        indicator={indicatorData}
+      />
     </div>
   );
 }

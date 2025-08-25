@@ -71,18 +71,6 @@ export function HeroForm({ onSuccessfulSubmit, onIndicationClick }: HeroFormProp
     }
   }
 
-  const handleIndicationClick = () => {
-    if (submissionData) {
-      onIndicationClick();
-    } else {
-      toast({
-        variant: "destructive",
-        title: "Atenção",
-        description: "Por favor, preencha e envie o formulário principal primeiro.",
-      });
-    }
-  }
-
   return (
     <div className="w-full max-w-md rounded-lg bg-black/30 p-6 backdrop-blur-sm">
       <Form {...form}>
@@ -171,7 +159,7 @@ export function HeroForm({ onSuccessfulSubmit, onIndicationClick }: HeroFormProp
           Você conhece alguém que merece viver neste padrão? Indique e receba recompensas exclusivas pelo nosso programa de indicação.
         </p>
         <Button
-          onClick={handleIndicationClick}
+          onClick={onIndicationClick}
           variant="outline"
           className="w-full border-white/20 bg-black/30 text-white hover:bg-black/50"
         >
