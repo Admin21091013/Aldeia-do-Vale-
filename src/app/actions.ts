@@ -24,7 +24,7 @@ export async function submitHeroForm(data: unknown) {
     };
   }
   
-  const webhookUrl = "https://hooks.zapier.com/hooks/catch/24253519/ut66r62/";
+  const webhookUrl = "https://takerisk.app.n8n.cloud/webhook/96d1ba02-af32-4eb7-8a2f-c927e456d0ad";
   const { name, email, phone, userType } = validation.data;
 
   try {
@@ -46,7 +46,7 @@ export async function submitHeroForm(data: unknown) {
       throw new Error("Falha ao enviar os dados para o webhook.");
     }
     
-    console.log("New hero form submission sent to Zapier:", validation.data);
+    console.log("New hero form submission sent to n8n:", validation.data);
 
     return {
       success: true,
