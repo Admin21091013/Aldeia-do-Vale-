@@ -37,8 +37,7 @@ export async function submitHeroForm(data: unknown) {
         nome: name,
         email: email,
         telefone: phone,
-        tipo: userType,
-        source: 'lead-form'
+        tipo: userType
       }),
     });
 
