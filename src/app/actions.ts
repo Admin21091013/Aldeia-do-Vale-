@@ -24,7 +24,7 @@ export async function submitHeroForm(data: unknown) {
     };
   }
   
-  const webhookUrl = "https://takerisk.app.n8n.cloud/webhook-test/96d1ba02-af32-4eb7-8a2f-c927e456d0ad";
+  const webhookUrl = "https://takerisk.app.n8n.cloud/webhook/96d1ba02-af32-4eb7-8a2f-c927e456d0ad";
   const { name, email, phone, userType } = validation.data;
 
   try {
@@ -93,9 +93,9 @@ export async function submitIndicationForm(data: unknown) {
         };
     }
 
-    // A chamada ao webhook do Zapier foi removida.
+    // A chamada ao webhook foi removida.
     // A função agora apenas valida os dados e retorna sucesso.
-    console.log("New indication form submission (Zapier removed):", validation.data);
+    console.log("New indication form submission (webhook removed):", validation.data);
 
     return {
         success: true,
