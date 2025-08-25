@@ -91,13 +91,44 @@ export async function submitIndicationForm(data: unknown) {
             message: `Dados inválidos: ${errorMessages}`,
         };
     }
+    
+    const webhookUrl = "https://takerisk.app.n8n.cloud/webhook-test/formulario-indicação";
+    const { indicatorName, indicatorEmail, indicatedName, indicatedEmail, indicatedPhone } = validation.data;
 
-    // A chamada ao webhook foi removida.
-    // A função agora apenas valida os dados e retorna sucesso.
-    console.log("New indication form submission (webhook removed):", validation.data);
+    try {
+        const response = await fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                nome_indicador: indicatorName,
+                email_indicador: indicatorEmail,
+                nome_indicado: indicatedName,
+                email_indicado: indicatedEmail,
+                telefone_indicado: indicatedPhone,
+            }),
+        });
 
-    return {
-        success: true,
-        message: "Obrigado. Seu convite foi enviado com exclusividade pelo nosso concierge.",
-    };
+        if (!response.ok) {
+            const errorBody = await response.text();
+            console.error("Webhook response error (Indication):", response.status, errorBody);
+            throw new Error("Falha ao enviar os dados da indicação para o webhook.");
+        }
+        
+        console.log("New indication form submission sent to n8n:", validation.data);
+
+        return {
+            success: true,
+            message: "Obrigado. Seu convite foi enviado com exclusividade pelo nosso concierge.",
+        };
+
+    } catch (error) {
+        console.error("Error sending indication to webhook:", error);
+        const errorMessage = error instanceof Error ? error.message : "Ocorreu um problema ao enviar sua indicação.";
+        return {
+            success: false,
+            message: errorMessage,
+        };
+    }
 }
