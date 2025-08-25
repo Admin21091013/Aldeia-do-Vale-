@@ -92,8 +92,8 @@ export async function submitIndicationForm(data: unknown) {
         };
     }
     
-    // Corrected production URL without special characters
-    const webhookUrl = "https://takerisk.app.n8n.cloud/webhook/formulario-indicacao";
+    // Correctly encoded test URL
+    const webhookUrl = "https://takerisk.app.n8n.cloud/webhook-test/formulario-indica%C3%A7%C3%A3o";
     const { indicatorName, indicatorEmail, indicatedName, indicatedEmail, indicatedPhone } = validation.data;
 
     try {
