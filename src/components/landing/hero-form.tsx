@@ -162,24 +162,22 @@ export function HeroForm({ onSuccessfulSubmit, onIndicationClick }: HeroFormProp
         </form>
       </Form>
 
-      {submissionData && (
-        <div className="mt-6 text-center text-white">
-          <Separator className="my-4 bg-white/20" />
-          <p className="mb-2 text-sm">
-            Participe do nosso programa de indicação:
-          </p>
-          <p className="mb-4 text-xs text-white/80">
-            Você conhece alguém que merece viver neste padrão? Indique e receba recompensas exclusivas pelo nosso programa de indicação.
-          </p>
-          <Button
-            onClick={handleIndicationClick}
-            variant="outline"
-            className="w-full border-white/50 text-white hover:bg-white/10 hover:text-white"
-          >
-            Indicar um amigo
-          </Button>
-        </div>
-      )}
+      <div className="mt-6 text-center text-white">
+        <Separator className="my-4 bg-white/20" />
+        <p className="mb-2 text-sm">
+          Participe do nosso programa de indicação:
+        </p>
+        <p className="mb-4 text-xs text-white/80">
+          Você conhece alguém que merece viver neste padrão? Indique e receba recompensas exclusivas pelo nosso programa de indicação.
+        </p>
+        <Button
+          onClick={handleIndicationClick}
+          variant="outline"
+          className="w-full border-white/50 text-white hover:bg-white/10 hover:text-white"
+        >
+          Indicar um amigo
+        </Button>
+      </div>
     </div>
   );
 }
