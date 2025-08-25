@@ -162,7 +162,7 @@ export function HeroForm({ onSuccessfulSubmit, onIndicationClick }: HeroFormProp
         </form>
       </Form>
 
-      <div className="mt-6 text-center text-white">
+       <div className="mt-6 text-center text-white">
         <Separator className="my-4 bg-white/20" />
         <p className="mb-2 text-sm">
           Participe do nosso programa de indicação:
@@ -173,7 +173,7 @@ export function HeroForm({ onSuccessfulSubmit, onIndicationClick }: HeroFormProp
         <Button
           onClick={handleIndicationClick}
           variant="outline"
-          className="w-full border-white/50 text-white hover:bg-white/10 hover:text-white"
+          className="w-full border-white/20 bg-black/30 text-white hover:bg-black/50"
         >
           Indicar um amigo
         </Button>
