@@ -24,7 +24,7 @@ export async function submitHeroForm(data: unknown) {
     };
   }
   
-  const webhookUrl = "https://takerisk.app.n8n.cloud/webhook/96d1ba02-af32-4eb7-8a2f-c927e456d0ad";
+  const webhookUrl = "https://takerisk.app.n8n.cloud/webhook-test/96d1ba02-af32-4eb7-8a2f-c927e456d0ad";
   const { name, email, phone, userType } = validation.data;
 
   try {
