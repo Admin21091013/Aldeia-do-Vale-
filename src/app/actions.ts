@@ -93,45 +93,12 @@ export async function submitIndicationForm(data: unknown) {
         };
     }
 
-    const webhookUrl = "https://hooks.zapier.com/hooks/catch/24298038/ut896v6/";
-    const { indicatorName, indicatorEmail, indicatedName, indicatedEmail, indicatedPhone, consent } = validation.data;
+    // A chamada ao webhook do Zapier foi removida.
+    // A função agora apenas valida os dados e retorna sucesso.
+    console.log("New indication form submission (Zapier removed):", validation.data);
 
-    try {
-        const response = await fetch(webhookUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                data: new Date().toISOString(),
-                indicador_nome: indicatorName,
-                indicador_email: indicatorEmail,
-                indicado_nome: indicatedName,
-                indicado_email: indicatedEmail,
-                indicado_telefone: indicatedPhone,
-                permissao: consent ? "Sim" : "Não",
-                status: "Novo",
-                source: 'indication-form'
-            }),
-        });
-
-        if (!response.ok) {
-            throw new Error("Falha ao enviar os dados de indicação para o webhook.");
-        }
-        
-        console.log("New indication form submission sent to Zapier:", validation.data);
-
-        return {
-            success: true,
-            message: "Obrigado. Seu convite foi enviado com exclusividade pelo nosso concierge.",
-        };
-
-    } catch (error) {
-        console.error("Error sending indication to webhook:", error);
-        const errorMessage = error instanceof Error ? error.message : "Ocorreu um problema ao enviar sua indicação.";
-        return {
-            success: false,
-            message: errorMessage,
-        };
-    }
+    return {
+        success: true,
+        message: "Obrigado. Seu convite foi enviado com exclusividade pelo nosso concierge.",
+    };
 }
