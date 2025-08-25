@@ -24,7 +24,7 @@ export async function submitHeroForm(data: unknown) {
     };
   }
   
-  const webhookUrl = "https://takerisk.app.n8n.cloud/webhook/formulario-interesse";
+  const webhookUrl = "https://takerisk.app.n8n.cloud/webhook-test/formulario-interesse";
   const { name, email, phone, userType } = validation.data;
 
   try {
