@@ -43,7 +43,9 @@ export async function submitHeroForm(data: unknown) {
     });
 
     if (!response.ok) {
-      throw new Error("Falha ao enviar os dados para o webhook.");
+        const errorBody = await response.text();
+        console.error("Webhook response error:", response.status, errorBody);
+        throw new Error("Falha ao enviar os dados para o webhook. Verifique o console do servidor para mais detalhes.");
     }
     
     console.log("New hero form submission sent to n8n:", validation.data);
