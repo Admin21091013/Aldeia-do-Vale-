@@ -92,10 +92,6 @@ export default function Header({ onReserveClick }: { onReserveClick: () => void;
                     <Link href="#inicio" className="flex items-center" onClick={handleLinkClick}>
                          <Image src="https://i.imgur.com/1xmmOFX.png" alt="Duprime Logo" width={120} height={30} />
                     </Link>
-                    <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
-                        <X className="h-6 w-6" />
-                        <span className="sr-only">Close menu</span>
-                    </Button>
                 </div>
                 <nav className="flex flex-1 flex-col items-center justify-center gap-6">
                   {navLinks.map((link) => (
