@@ -74,6 +74,9 @@ const indicationFormSchema = z.object({
     indicatedName: z.string().min(2, "Nome do indicado é obrigatório."),
     indicatedEmail: z.string().email("E-mail do indicado inválido."),
     indicatedPhone: z.string().optional(),
+    indicatedName2: z.string().optional(),
+    indicatedEmail2: z.string().email({ message: "E-mail do indicado 2 inválido." }).optional().or(z.literal('')),
+    indicatedPhone2: z.string().optional(),
     consent: z.boolean().refine(val => val === true, {
         message: "O consentimento é obrigatório.",
     }),
@@ -92,8 +95,18 @@ export async function submitIndicationForm(data: unknown) {
         };
     }
     
-    const webhookUrl = encodeURI("https://takerisk.app.n8n.cloud/webhook/formulario-indicação");
-    const { indicatorName, indicatorEmail, indicatedName, indicatedEmail, indicatedPhone } = validation.data;
+    const webhookUrl = encodeURI("https://takerisk.app.n8n.cloud/webhook/formulario-indicacao");
+    const { 
+        indicatorName, 
+        indicatorEmail, 
+        indicatedName, 
+        indicatedEmail, 
+        indicatedPhone,
+        indicatedName2,
+        indicatedEmail2,
+        indicatedPhone2,
+        consent
+    } = validation.data;
 
     try {
         const response = await fetch(webhookUrl, {
@@ -102,11 +115,15 @@ export async function submitIndicationForm(data: unknown) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                nome_indicador: indicatorName,
-                email_indicador: indicatorEmail,
-                nome_indicado: indicatedName,
-                email_indicado: indicatedEmail,
-                telefone_indicado: indicatedPhone,
+                "Seu nome": indicatorName,
+                "Seu e-mail": indicatorEmail,
+                "Nome do indicado": indicatedName,
+                "E-mail do indicado": indicatedEmail,
+                "Telefone do indicado": indicatedPhone,
+                "Nome do indicado 2": indicatedName2,
+                "E-mail do indicado 2": indicatedEmail2,
+                "Telefone do indicado 2": indicatedPhone2,
+                "Permissão": consent,
             }),
         });
 

@@ -39,6 +39,9 @@ const indicationSchema = z.object({
   indicatedName: z.string().min(2, { message: "Nome do indicado é obrigatório." }),
   indicatedEmail: z.string().email({ message: "E-mail do indicado inválido." }),
   indicatedPhone: z.string().optional(),
+  indicatedName2: z.string().optional(),
+  indicatedEmail2: z.string().email({ message: "E-mail do indicado 2 inválido." }).optional().or(z.literal('')),
+  indicatedPhone2: z.string().optional(),
   consent: z.boolean().refine(val => val, { message: "Você deve concordar para enviar." }),
 });
 
@@ -56,6 +59,9 @@ export function IndicationModal({ isOpen, onClose, indicator }: IndicationModalP
       indicatedName: "",
       indicatedEmail: "",
       indicatedPhone: "",
+      indicatedName2: "",
+      indicatedEmail2: "",
+      indicatedPhone2: "",
       consent: false,
     },
   });
@@ -74,7 +80,15 @@ export function IndicationModal({ isOpen, onClose, indicator }: IndicationModalP
   const onSubmit = async (values: IndicationFormValues) => {
     setIsSubmitting(true);
     try {
-      const result = await submitIndicationForm(values);
+      // Ensure empty optional fields are truly optional
+      const submissionValues = {
+        ...values,
+        indicatedName2: values.indicatedName2 || undefined,
+        indicatedEmail2: values.indicatedEmail2 || undefined,
+        indicatedPhone2: values.indicatedPhone2 || undefined,
+      };
+
+      const result = await submitIndicationForm(submissionValues);
       
       if (result.success) {
         toast({
@@ -141,7 +155,7 @@ export function IndicationModal({ isOpen, onClose, indicator }: IndicationModalP
             </div>
 
             <div>
-              <FormLabel className="text-sm font-semibold">Dados do Indicado</FormLabel>
+              <FormLabel className="text-sm font-semibold">Dados do Indicado 1</FormLabel>
               <Separator className="my-2"/>
               <div className="space-y-4">
                 <FormField
@@ -175,6 +189,49 @@ export function IndicationModal({ isOpen, onClose, indicator }: IndicationModalP
                     <FormItem>
                       <FormControl>
                         <Input type="tel" placeholder="Telefone (Opcional)" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+            </div>
+
+            <div>
+              <FormLabel className="text-sm font-semibold">Dados do Indicado 2 (Opcional)</FormLabel>
+              <Separator className="my-2"/>
+              <div className="space-y-4">
+                <FormField
+                  control={form.control}
+                  name="indicatedName2"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input placeholder="Nome do indicado 2" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="indicatedEmail2"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input type="email" placeholder="E-mail do indicado 2" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="indicatedPhone2"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input type="tel" placeholder="Telefone do indicado 2" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
