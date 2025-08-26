@@ -72,7 +72,7 @@ const indicationFormSchema = z.object({
     indicatorName: z.string().min(2, "Seu nome é obrigatório."),
     indicatorEmail: z.string().email("Seu e-mail é inválido."),
     indicatedName: z.string().min(2, "Nome do indicado é obrigatório."),
-    indicatedEmail: z.string().email("E-mail do indicado inválido."),
+    indicatedEmail: z.string().email({ message: "E-mail do indicado inválido." }).optional().or(z.literal('')),
     indicatedPhone: z.string().optional(),
     indicatedName2: z.string().optional(),
     indicatedEmail2: z.string().email({ message: "E-mail do indicado 2 inválido." }).optional().or(z.literal('')),
