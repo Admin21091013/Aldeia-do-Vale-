@@ -184,7 +184,7 @@ export function IndicationModal({ isOpen, onClose, indicator }: IndicationModalP
                         render={({ field }) => (
                             <FormItem>
                             <FormControl>
-                                <Input type="email" placeholder="E-mail do indicado" {...field} />
+                                <Input type="email" placeholder="E-mail do indicado (Opcional)" {...field} />
                             </FormControl>
                             <FormMessage />
                             </FormItem>
@@ -196,7 +196,7 @@ export function IndicationModal({ isOpen, onClose, indicator }: IndicationModalP
                         render={({ field }) => (
                             <FormItem>
                             <FormControl>
-                                <Input type="tel" placeholder="Telefone do indicado" {...field} />
+                                <Input type="tel" placeholder="Telefone do indicado (Opcional)" {...field} />
                             </FormControl>
                              <FormMessage />
                             </FormItem>
@@ -227,7 +227,7 @@ export function IndicationModal({ isOpen, onClose, indicator }: IndicationModalP
                         render={({ field }) => (
                             <FormItem>
                             <FormControl>
-                                <Input type="email" placeholder="E-mail do indicado 2" {...field} />
+                                <Input type="email" placeholder="E-mail do indicado 2 (Opcional)" {...field} />
                             </FormControl>
                             <FormMessage />
                             </FormItem>
@@ -239,7 +239,7 @@ export function IndicationModal({ isOpen, onClose, indicator }: IndicationModalP
                         render={({ field }) => (
                             <FormItem>
                             <FormControl>
-                                <Input type="tel" placeholder="Telefone do indicado 2" {...field} />
+                                <Input type="tel" placeholder="Telefone do indicado 2 (Opcional)" {...field} />
                             </FormControl>
                              <FormMessage />
                             </FormItem>
