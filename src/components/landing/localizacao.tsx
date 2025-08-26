@@ -1,4 +1,23 @@
 import Image from "next/image";
+import { CheckCircle } from "lucide-react";
+
+const infrastructureItems = [
+    { name: "Decks Lagos", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
+    { name: "Pet Place", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
+    { name: "Quadra de Esportes", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
+    { name: "Quadras de Tênis", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
+    { name: "Casa na Árvore", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
+    { name: "Playground", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
+    { name: "Espaço Gourmet", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
+    { name: "Crossfit", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
+    { name: "Campo de Futebol", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
+    { name: "Vestiários", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
+    { name: "Piscina Natural", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
+    { name: "Quadras Beach Tennis", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
+    { name: "Fire Place", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
+    { name: "Pier", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
+    { name: "Teatro de Arena", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
+];
 
 export default function Localizacao() {
   return (
@@ -26,6 +45,18 @@ export default function Localizacao() {
                 className="h-full w-full"
             ></iframe>
           </div>
+        </div>
+
+        <div className="mt-16 text-center lg:mt-24">
+            <h3 className="font-headline text-3xl md:text-4xl">Infraestrutura Completa para sua Família</h3>
+            <div className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-x-8 gap-y-4 text-left md:grid-cols-2 lg:max-w-5xl">
+                {infrastructureItems.map((item) => (
+                    <div key={item.name} className="flex items-center gap-3">
+                        {item.icon}
+                        <span className="text-base md:text-lg">{item.name}</span>
+                    </div>
+                ))}
+            </div>
         </div>
       </div>
     </section>
