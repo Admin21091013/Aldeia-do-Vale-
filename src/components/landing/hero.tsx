@@ -28,8 +28,7 @@ export default function Hero({ onSuccessfulSubmit, onIndicationClick }: HeroProp
           <div className="text-center text-white lg:text-left">
             <h1 className="font-headline text-4xl leading-tight text-white md:text-5xl lg:text-6xl">
               Viver no Aldeia do Vale <br />
-              é um privilégio <br />
-              que a natureza <br />
+              é um privilégio que a natureza <br />
               concede a poucos.
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-sand-200 md:text-xl lg:mx-0">
