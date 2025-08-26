@@ -196,7 +196,7 @@ export function IndicationModal({ isOpen, onClose, indicator }: IndicationModalP
                         render={({ field }) => (
                             <FormItem>
                             <FormControl>
-                                <Input type="tel" placeholder="Telefone do indicado (Opcional)" {...field} />
+                                <Input type="tel" placeholder="Telefone do indicado" {...field} />
                             </FormControl>
                              <FormMessage />
                             </FormItem>
@@ -239,7 +239,7 @@ export function IndicationModal({ isOpen, onClose, indicator }: IndicationModalP
                         render={({ field }) => (
                             <FormItem>
                             <FormControl>
-                                <Input type="tel" placeholder="Telefone do indicado 2 (Opcional)" {...field} />
+                                <Input type="tel" placeholder="Telefone do indicado 2" {...field} />
                             </FormControl>
                              <FormMessage />
                             </FormItem>
