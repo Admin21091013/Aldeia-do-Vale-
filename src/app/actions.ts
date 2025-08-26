@@ -72,15 +72,27 @@ const indicationFormSchema = z.object({
     indicatorName: z.string().min(2, "Seu nome é obrigatório."),
     indicatorEmail: z.string().email("Seu e-mail é inválido."),
     indicatedName: z.string().min(2, "Nome do indicado é obrigatório."),
-    indicatedEmail: z.string().email({ message: "E-mail do indicado inválido." }).optional().or(z.literal('')),
+    indicatedEmail: z.string().email({ message: "E-mail inválido." }).optional().or(z.literal('')),
     indicatedPhone: z.string().optional(),
     indicatedName2: z.string().optional(),
-    indicatedEmail2: z.string().email({ message: "E-mail do indicado 2 inválido." }).optional().or(z.literal('')),
+    indicatedEmail2: z.string().email({ message: "E-mail inválido." }).optional().or(z.literal('')),
     indicatedPhone2: z.string().optional(),
     consent: z.boolean().refine(val => val === true, {
         message: "O consentimento é obrigatório.",
     }),
+}).refine(data => {
+    return !!data.indicatedEmail || !!data.indicatedPhone;
+}, {
+    message: "É necessário fornecer o e-mail ou o telefone do Indicado 1.",
+    path: ["indicatedPhone"], // Path to show the error message
+}).refine(data => {
+    if (!data.indicatedName2) return true; // If there's no second indicated, validation passes
+    return !!data.indicatedEmail2 || !!data.indicatedPhone2;
+}, {
+    message: "É necessário fornecer o e-mail ou o telefone do Indicado 2.",
+    path: ["indicatedPhone2"], // Path to show the error message
 });
+
 
 export type IndicationFormData = z.infer<typeof indicationFormSchema>;
 

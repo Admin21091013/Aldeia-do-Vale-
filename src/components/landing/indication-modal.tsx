@@ -38,12 +38,25 @@ const indicationSchema = z.object({
   indicatorName: z.string().min(2, { message: "Seu nome é obrigatório." }),
   indicatorEmail: z.string().email({ message: "Seu e-mail é inválido." }),
   indicatedName: z.string().min(2, { message: "Nome do indicado é obrigatório." }),
-  indicatedEmail: z.string().email({ message: "E-mail do indicado inválido." }).optional().or(z.literal('')),
+  indicatedEmail: z.string().email({ message: "E-mail inválido." }).optional().or(z.literal('')),
   indicatedPhone: z.string().optional(),
   indicatedName2: z.string().optional(),
-  indicatedEmail2: z.string().email({ message: "E-mail do indicado 2 inválido." }).optional().or(z.literal('')),
+  indicatedEmail2: z.string().email({ message: "E-mail inválido." }).optional().or(z.literal('')),
   indicatedPhone2: z.string().optional(),
   consent: z.boolean().refine(val => val, { message: "Você deve concordar para enviar." }),
+}).refine(data => {
+    return !!data.indicatedEmail || !!data.indicatedPhone;
+}, {
+    message: "É necessário fornecer o e-mail ou o telefone do Indicado 1.",
+    path: ["indicatedPhone"], // Path to show the error message
+}).refine(data => {
+    // If there's no second indicated name, validation passes for the second contact.
+    if (!data.indicatedName2) return true;
+    // If there is a name, either email or phone for indicated 2 must be present.
+    return !!data.indicatedEmail2 || !!data.indicatedPhone2;
+}, {
+    message: "É necessário fornecer o e-mail ou o telefone do Indicado 2.",
+    path: ["indicatedPhone2"], // Path to show the error message
 });
 
 type IndicationFormValues = z.infer<typeof indicationSchema>;
@@ -171,7 +184,7 @@ export function IndicationModal({ isOpen, onClose, indicator }: IndicationModalP
                         render={({ field }) => (
                             <FormItem>
                             <FormControl>
-                                <Input type="email" placeholder="E-mail do indicado (Opcional)" {...field} />
+                                <Input type="email" placeholder="E-mail do indicado" {...field} />
                             </FormControl>
                             <FormMessage />
                             </FormItem>
@@ -183,9 +196,9 @@ export function IndicationModal({ isOpen, onClose, indicator }: IndicationModalP
                         render={({ field }) => (
                             <FormItem>
                             <FormControl>
-                                <Input type="tel" placeholder="Telefone (Opcional)" {...field} />
+                                <Input type="tel" placeholder="Telefone do indicado" {...field} />
                             </FormControl>
-                            <FormMessage />
+                             <FormMessage />
                             </FormItem>
                         )}
                         />
@@ -228,7 +241,7 @@ export function IndicationModal({ isOpen, onClose, indicator }: IndicationModalP
                             <FormControl>
                                 <Input type="tel" placeholder="Telefone do indicado 2" {...field} />
                             </FormControl>
-                            <FormMessage />
+                             <FormMessage />
                             </FormItem>
                         )}
                         />
