@@ -2,21 +2,21 @@ import Image from "next/image";
 import { CheckCircle } from "lucide-react";
 
 const infrastructureItems = [
-    { name: "Decks Lagos", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
-    { name: "Pet Place", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
-    { name: "Quadra de Esportes", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
-    { name: "Quadras de Tênis", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
-    { name: "Casa na Árvore", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
-    { name: "Playground", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
-    { name: "Espaço Gourmet", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
-    { name: "Crossfit", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
-    { name: "Campo de Futebol", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
-    { name: "Vestiários", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
-    { name: "Piscina Natural", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
-    { name: "Quadras Beach Tennis", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
-    { name: "Fire Place", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
-    { name: "Pier", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
-    { name: "Teatro de Arena", icon: <CheckCircle className="h-5 w-5 text-primary" /> },
+    { name: "Decks Lagos", icon: CheckCircle },
+    { name: "Pet Place", icon: CheckCircle },
+    { name: "Quadra de Esportes", icon: CheckCircle },
+    { name: "Quadras de Tênis", icon: CheckCircle },
+    { name: "Casa na Árvore", icon: CheckCircle },
+    { name: "Playground", icon: CheckCircle },
+    { name: "Espaço Gourmet", icon: CheckCircle },
+    { name: "Crossfit", icon: CheckCircle },
+    { name: "Campo de Futebol", icon: CheckCircle },
+    { name: "Vestiários", icon: CheckCircle },
+    { name: "Piscina Natural", icon: CheckCircle },
+    { name: "Quadras Beach Tennis", icon: CheckCircle },
+    { name: "Fire Place", icon: CheckCircle },
+    { name: "Pier", icon: CheckCircle },
+    { name: "Teatro de Arena", icon: CheckCircle },
 ];
 
 export default function Localizacao() {
@@ -53,14 +53,17 @@ export default function Localizacao() {
           {/* Coluna da Direita: Infraestrutura */}
           <div className="lg:pt-4">
             <div className="text-center lg:text-left">
-                <h3 className="font-headline text-3xl md:text-4xl">Infraestrutura Completa para sua Família</h3>
+                <h3 className="font-headline text-4xl md:text-5xl">Infraestrutura Completa para sua Família</h3>
                 <div className="mx-auto mt-8 grid grid-cols-1 gap-x-8 gap-y-4 text-left sm:grid-cols-2">
-                    {infrastructureItems.map((item) => (
-                        <div key={item.name} className="flex items-center gap-3">
-                            {item.icon}
-                            <span className="text-base md:text-lg">{item.name}</span>
-                        </div>
-                    ))}
+                    {infrastructureItems.map((item) => {
+                        const Icon = item.icon;
+                        return (
+                            <div key={item.name} className="flex items-center gap-3">
+                                <Icon className="h-5 w-5 flex-shrink-0 text-primary" />
+                                <span className="text-lg md:text-xl">{item.name}</span>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
           </div>
