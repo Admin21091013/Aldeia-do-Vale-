@@ -26,7 +26,7 @@ export default function Hero({ onSuccessfulSubmit, onIndicationClick }: HeroProp
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:py-32 lg:py-40">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
           <div className="text-center text-white lg:text-left">
-            <h1 className="font-headline text-[2.1rem] leading-tight text-white md:text-[2.8rem] lg:text-[3.2rem]">
+            <h1 className="font-headline text-[2rem] leading-tight text-white md:text-[2.6rem] lg:text-[3rem]">
               Viver no Aldeia do Vale Pirenópolis <br />
               é um privilégio que a natureza concede a poucos.
             </h1>
