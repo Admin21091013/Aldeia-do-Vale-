@@ -13,6 +13,7 @@ import { ContactModal } from "@/components/landing/contact-modal";
 import { GaleriaCombinada } from "@/components/landing/galeria-combinada";
 import { type HeroFormData } from "@/app/actions";
 import { IndicationModal } from "@/components/landing/indication-modal";
+import { AnimatedSection } from "@/components/landing/animated-section";
 
 export default function Home() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -38,11 +39,21 @@ export default function Home() {
       <Header onReserveClick={openContactModal} />
       <main className="flex-1">
         <Hero onSuccessfulSubmit={handleSuccessfulSubmit} onIndicationClick={openIndicationModal} />
-        <CopySection />
-        <InfoSection />
-        <Localizacao />
-        <GaleriaCombinada />
-        <Sobre />
+        <AnimatedSection>
+            <CopySection />
+        </AnimatedSection>
+         <AnimatedSection>
+            <InfoSection />
+        </AnimatedSection>
+        <AnimatedSection>
+            <Localizacao />
+        </AnimatedSection>
+        <AnimatedSection>
+            <GaleriaCombinada />
+        </AnimatedSection>
+        <AnimatedSection>
+            <Sobre />
+        </AnimatedSection>
       </main>
       <FloatingWhatsapp />
       <Footer />
