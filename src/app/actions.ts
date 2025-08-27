@@ -149,7 +149,7 @@ export async function submitIndicationForm(data: unknown) {
 
         return {
             success: true,
-            message: "Obrigado. Seu convite foi enviado com exclusividade pelo nosso concierge.",
+            message: "Obrigado! Seu convite foi enviado com sucesso. Em breve, nossa equipe entrará em contato.",
         };
 
     } catch (error) {
