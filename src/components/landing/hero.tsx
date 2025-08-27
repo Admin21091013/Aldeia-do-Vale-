@@ -28,8 +28,7 @@ export default function Hero({ onSuccessfulSubmit, onIndicationClick }: HeroProp
           <div className="text-center text-white lg:text-left">
             <h1 className="font-headline text-[2.1rem] leading-tight text-white md:text-[2.8rem] lg:text-[3.2rem]">
               Viver no Aldeia do Vale Pirenópolis <br />
-              é um privilégio que a natureza <br />
-              concede a poucos.
+              é um privilégio que a natureza concede a poucos.
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-sand-200 md:text-xl lg:mx-0">
               Apenas 152 terrenos, a 5 minutos da Igreja Matriz. Cadastre-se e seja um dos escolhidos.
